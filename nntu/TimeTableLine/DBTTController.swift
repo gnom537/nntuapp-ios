@@ -1,0 +1,503 @@
+//
+//  DBTTController.swift
+//  nntu pre-alpha
+//
+//  Created by Алексей Шерстнёв on 23.01.2021.
+//  Copyright © 2021 Алексей Шерстнев. All rights reserved.
+//
+
+import UIKit
+import WidgetKit
+
+class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
+    
+    @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
+    @IBOutlet var prevDayButton: UIButton!
+    @IBOutlet var nextDayButton: UIButton!
+    @IBOutlet var DayLabel: UILabel!
+    
+    @IBOutlet var ControlStack: UIStackView!
+//    @IBOutlet var areAllActiveButton: UIBarButtonItem!
+    
+    
+    
+    var nowWeek = 0
+    var weekAtTheMoment = 0
+    var actualRow = -1
+    var actualSection = -1
+    
+    var allLessons = [Lesson]()
+    var arrangedTT = [[Lesson]]()
+    let data = UserDefaults.standard
+    var isBlue = false
+    var areAllActive = false
+    var isCalendarUpdating = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        allLessons = CoreDataStack.shared.fetchLessons()
+        if (checkAutoUpdate() == true || allLessons.count == 0){
+            onlineTT()
+        } else {
+            self.refreshControl?.endRefreshing()
+        }
+        loadLabel()
+        arrangedTT = getArrangedDataForWeek(tt: allLessons, week: nowWeek)
+        getActualLesson()
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+        
+        //наводим красоту
+        self.tableView.backgroundView = nil
+        ControlStack.layer.cornerRadius = 10
+        areAllActive = UserDefaults.standard.bool(forKey: "areAllActive")
+//        areAllActiveButton.image = areAllActive ? UIImage(systemName: "tablecells.badge.ellipsis.fill") : UIImage(systemName: "tablecells.badge.ellipsis")
+        
+        //приколы с календарем
+        isCalendarUpdating = data.bool(forKey: "CalendarTransfer")
+        if (isCalendarUpdating && allLessons.count > 0){
+            putTTinCalendar(tt: allLessons)
+        }
+        
+        self.tableView.reloadData()
+        self.tableView.backgroundColor = UIColor.systemBackground
+        
+        
+        //делаем свайпы ура (наконец-то)
+        let nextSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeNext(_:)))
+        nextSwipe.direction = .left
+        self.tableView.addGestureRecognizer(nextSwipe)
+        
+        let prevSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipePrev(_:)))
+        prevSwipe.direction = .right
+        self.tableView.addGestureRecognizer(prevSwipe)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        areAllActive = UserDefaults.standard.bool(forKey: "areAllActive")
+        self.tableView.reloadData()
+    }
+    
+    
+    @objc func refresh(){
+        allLessons = CoreDataStack.shared.fetchLessons()
+        if (checkAutoUpdate() == true || allLessons.count == 0){
+            onlineTT()
+        } else {
+            self.refreshControl?.endRefreshing()
+        }
+        updatePlate()
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+        tableView.reloadData()
+        
+        //приколы с календарем
+        isCalendarUpdating = data.bool(forKey: "CalendarTransfer")
+        if (isCalendarUpdating && allLessons.count > 0){
+            putTTinCalendar(tt: allLessons)
+        }
+    }
+    
+    
+    
+    func datePicked(){
+        if (dateForTT == nil) {return}
+        var userCalendar = Calendar.current
+        userCalendar.locale = Locale(identifier: "ru_UA")
+        var newNowWeek = userCalendar.component(.weekOfYear, from: dateForTT!) - 5
+        newNowWeek -= 1
+        nowWeek = newNowWeek
+        if (nowWeek == weekAtTheMoment){
+            getActualLesson()
+        } else {
+            actualSection = -1
+            actualRow = -1
+        }
+        updatePlate()
+        self.tableView.reloadData()
+        dateForTT = nil
+    }
+    
+    
+    func getActualLesson(){
+        actualRow = -1
+        actualSection = -1
+        let now = Date()
+        var userCalendar = Calendar.current
+        userCalendar.locale = Locale(identifier: "ru_UA")
+        actualSection = userCalendar.component(.weekday, from: now)
+        let hour = userCalendar.component(.hour, from: now)
+        let minute = userCalendar.component(.minute, from: now)
+        let estTime = hour*100 + minute
+        if (actualSection == 1){
+            actualSection = 7
+        } else {actualSection -= 1}
+        actualSection -= 1
+        var nextDay = false
+        if (arrangedTT.count > 0){
+            var found = false
+            for i in (0 ... arrangedTT.count - 1){
+                if (arrangedTT[i].count > 0){
+                    if (arrangedTT[i][0].day == actualSection){
+                        actualSection = i
+                        found = true
+                        break
+                    } else if (arrangedTT[i][0].day > actualSection){
+                        found = true
+                        actualSection = i
+                        nextDay = true
+                        break
+                    }
+                }
+            }
+            if (!found){
+                //если ничего не нашлось и он не брейкнулся, зайдет сюда
+                actualRow = -1
+                actualSection = -1
+                return
+            }
+        } else {
+            actualRow = -1
+            actualSection = -1
+            return
+        }
+        
+        if (nextDay) {
+            actualRow = 0
+            return
+        }
+        
+        for i in (0 ... arrangedTT[actualSection].count - 1){
+            if (timeFromString(string: arrangedTT[actualSection][i].stopTime) > estTime){
+                actualRow = i
+                break
+            }
+        }
+        if (actualRow == -1 && actualSection < arrangedTT.count - 1){
+            actualSection += 1
+            if (arrangedTT[actualSection].count > 0){
+                actualRow = 0
+            } else {
+                actualRow = -1
+                actualSection = -1
+            }
+        }
+    }
+    
+    
+
+    func filterByDay(all: [Lesson], day: Int, week: Int) -> [Lesson]{
+//        print ("Неделя:\(week)  День:\(day)")
+        var output = [Lesson]()
+        if (all.count == 0){return output}
+        for i in (0 ... all.count - 1){
+            if (all[i].day == day){
+                if (all[i].weeks.contains(-2) && week % 2 == 0){
+                    output.append(all[i])
+                }
+                else if (all[i].weeks.contains(-1) && week % 2 == 1){
+                    output.append(all[i])
+                }
+                else if (all[i].weeks.contains(week)){
+                    output.append(all[i])
+                }
+            }
+        }
+        return sortByTime(output)
+    }
+    
+    
+    func getArrangedDataForWeek(tt: [Lesson], week: Int) -> [[Lesson]]{
+        var output = [[Lesson]]()
+        for i in (0 ... 6){
+            let dayData = filterByDay(all: tt, day: i, week: week)
+            if (dayData.count > 0) {
+                output.append(dayData)
+            }
+        }
+        return output
+    }
+    
+    func onlineTT(){
+        downloadTT(data.string(forKey: "Group") ?? "", callback: { lessons in
+            self.refreshControl?.endRefreshing()
+            if (lessons.count == 0 && self.allLessons.count == 0){
+                let popup = UIAlertController(title: "Расписание не найдено", message: "Вы можете добавить его в редакторе расписания (в настройках)", preferredStyle: .alert)
+                let kaction = UIAlertAction(title: "ОК", style: .default)
+                popup.addAction(kaction)
+                self.present(popup, animated: true)
+                self.tableView.reloadData()
+            } else {
+                self.allLessons = lessons
+                CoreDataStack.shared.saveManyLessons(objects: lessons)
+                if #available(iOS 14.0, *) {
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+                self.arrangedTT = self.getArrangedDataForWeek(tt: self.allLessons, week: self.nowWeek)
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
+    func checkAutoUpdate() -> Bool{
+        let state = data.integer(forKey: "autoUpdate")
+        if (state == 1){
+            return true
+        } else { return false }
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return arrangedTT.count
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return arrangedTT[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (arrangedTT[section].count == 0){
+            return DaysOfWeek[section]
+        } else {
+            return DaysOfWeek[arrangedTT[section][0].day]
+        }
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if ((indexPath.row == actualRow && indexPath.section == actualSection) || areAllActive){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "active", for: indexPath) as! activeTVCell
+            cell.data = arrangedTT[indexPath.section][indexPath.row]
+            cell.fillIn(isBlue)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "passiveLesson", for: indexPath) as! passiveTVCell
+            cell.data = arrangedTT[indexPath.section][indexPath.row]
+            cell.fillIn(isBlue)
+            return cell
+        }
+    }
+    
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+        print("Hello")
+    }
+    
+    
+    
+    @IBAction func prevWeek(_ sender: UIButton) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
+        nowWeek -= 1
+        updatePlate()
+    }
+    
+    @IBAction func nextWeek(_ sender: UIButton) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
+        nowWeek += 1
+        updatePlate()
+    }
+    
+    @objc func swipeNext(_ sender: UIGestureRecognizer){
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
+        nowWeek += 1
+        updatePlate()
+    }
+    
+    @objc func swipePrev(_ sender: UIGestureRecognizer){
+        if (nowWeek > 0){
+            let generator = UISelectionFeedbackGenerator()
+            generator.selectionChanged()
+            nowWeek -= 1
+            updatePlate()
+        }
+    }
+    
+//    @IBAction func showEverythingButton(_ sender: UIBarButtonItem) {
+//        if (areAllActive) {
+//            areAllActive = false
+//            sender.image = UIImage(systemName: "tablecells.badge.ellipsis")
+//        } else {
+//            areAllActive = true
+//            sender.image = UIImage(systemName: "tablecells.badge.ellipsis.fill")
+//        }
+//        let generator = UIImpactFeedbackGenerator(style: .medium)
+//        generator.impactOccurred()
+//        UserDefaults.standard.set(areAllActive, forKey: "areAllActive")
+//        self.tableView.reloadData()
+//    }
+    
+    
+    
+    func updatePlate(){
+        if (nowWeek == 0){
+            prevDayButton.isEnabled = false
+        } else {
+            prevDayButton.isEnabled = true
+        }
+        let weekString = "\(nowWeek) неделя"
+//        let colorfulS = NSMutableAttributedString(string: weekString)
+        isBlue = nowWeek % 2 == 0
+        DayLabel.text = weekString
+//        if (isBlue){
+//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUblue)
+//        } else {
+//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUred)
+//        }
+//        DayLabel.attributedText = colorfulS
+        
+        arrangedTT = getArrangedDataForWeek(tt: allLessons, week: nowWeek)
+        if (nowWeek == weekAtTheMoment){
+            getActualLesson()
+        } else {
+            actualSection = -1
+            actualRow = -1
+        }
+        tableView.reloadData()
+    }
+    
+    func loadLabel(){
+        let moment = Date()
+        var userCalendar = Calendar.current
+        userCalendar.locale = Locale(identifier: "ru_UA")
+        var week = userCalendar.component(.weekOfYear, from: moment) - 5
+//        let day = userCalendar.component(.weekday, from: moment)
+        week -= 1
+        weekAtTheMoment = week
+        nowWeek = weekAtTheMoment
+        let weekString = "\(week) неделя"
+//        let colorfulS = NSMutableAttributedString(string: weekString)
+        isBlue = week % 2 == 0
+        DayLabel.text = weekString
+//        if (isBlue){
+//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUblue)
+//        } else {
+//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUred)
+//        }
+//        DayLabel.attributedText = colorfulS
+        getActualLesson()
+    }
+    
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        allLessons = CDLoadLessons()
+    //        if (checkAutoUpdate() == true || allLessons.count == 0){
+    //            onlineTT()
+    //        }
+    //        showedLessons = filterByDay(all: allLessons, day: getNowDayOfWeek(), week: getWeekNumber())
+    //        getActualLesson()
+    //        self.tableView.reloadData()
+    //    }
+        
+        
+    //    func getActualLesson(){
+    //        if (showedLessons.count == 0) {return}
+    //        let now = Date()
+    //        var userCalendar = Calendar.current
+    //        userCalendar.locale = Locale(identifier: "ru_UA")
+    //        let dateTime = userCalendar.component(.hour, from: now)*100 + userCalendar.component(.minute, from: now)
+    //        for i in (0 ... showedLessons.count - 1){
+    //            let stopTime = timeFromString(string: showedLessons[i].stopTime)
+    //            if (dateTime < stopTime){
+    //                actualLesson = i
+    //                return
+    //            }
+    //        }
+    //    }
+        
+        
+    //    func getNowDayOfWeek() -> Int {
+    //        let now = Date()
+    //        var userCalendar = Calendar.current
+    //        userCalendar.locale = Locale(identifier: "ru_UA")
+    //        nowDayWeek = userCalendar.component(.weekday, from: now)
+    //        if (nowDayWeek == 1){
+    //            nowDayWeek = 7
+    //        } else {nowDayWeek -= 1}
+    //        nowDayWeek -= 1
+    //        return nowDayWeek
+    //    }
+        
+    //    func getWeekNumber() -> Int {
+    //        let now = Date()
+    //        var userCalendar = Calendar.current
+    //        userCalendar.locale = Locale(identifier: "ru_UA")
+    //        nowWeek = userCalendar.component(.weekOfYear, from: now)
+    ////        print("ТЕКУЩАЯ НЕДЕЛЯ ПО NOWWEEK: \(nowWeek)")
+    //        if (userCalendar.component(.weekday, from: now) == 1){
+    //            nowWeek -= 1
+    //        }
+    ////        print("ИЗМЕНЕННАЯ НЕДЕЛЯ ПО NOWWEEK: \(nowWeek)")
+    //        return nowWeek
+    //    }
+    //
+    
+    
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    
+    // MARK: - Navigation
+    @IBAction func goPickTime(_ sender: Any) {
+        performSegue(withIdentifier: "goPickTime", sender: (Any).self)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showPassiveLesson"){
+            let detailVC = segue.destination as! singleLessonViewController
+            let newCell = sender as! passiveTVCell
+            detailVC.lesson = newCell.data
+        } else if (segue.identifier == "showActiveLesson"){
+            let detailVC = segue.destination as! singleLessonViewController
+            let newCell = sender as! activeTVCell
+            detailVC.lesson = newCell.data
+        } else if (segue.identifier == "goPickTime"){
+            dateForTT = nil
+            freeDBTTController = self
+//            let pickerVC = segue.destination as! pickTimeController
+//            pickerVC.dayDifference = 0
+        }
+    }
+    
+
+}

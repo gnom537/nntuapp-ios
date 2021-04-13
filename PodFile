@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+
+
+target 'nntu pre-alpha' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+use_frameworks!
+  pod 'SwiftSoup'
+  pod 'Alamofire'
+
+end
+
+target 'widgetTimeTable' do
+    use_frameworks!
+    pod 'Alamofire'
+    pod 'SwiftSoup'
+end
+
+target 'WidgetLessonsExtension' do
+    use_frameworks!
+    pod 'Alamofire'
+    pod 'SwiftSoup' 
+end

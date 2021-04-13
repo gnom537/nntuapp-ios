@@ -1,0 +1,8 @@
+app_identifier("nntu.appfinal") # The bundle identifier of your app
+apple_id("nntuapp@inbox.ru") # Your Apple email address
+
+itc_team_id("122044078") # App Store Connect Team ID
+team_id("8DB7C77NK9") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

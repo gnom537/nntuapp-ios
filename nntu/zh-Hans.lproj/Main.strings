@@ -1,0 +1,403 @@
+
+/* Class = "UITextField"; placeholder = "Имя"; ObjectID = "00f-R5-spG"; */
+"00f-R5-spG.placeholder" = "名称";
+
+/* Class = "UILabel"; text = "Не все поля заполнены."; ObjectID = "0DJ-oc-FRf"; */
+"0DJ-oc-FRf.text" = "并非所有的领域都充满。";
+
+/* Class = "UITabBarItem"; title = "Оценки"; ObjectID = "0l5-Kc-Sjq"; */
+"0l5-Kc-Sjq.title" = "评测";
+
+/* Class = "UILabel"; text = "Математический анализ"; ObjectID = "187-X5-uNS"; */
+"187-X5-uNS.text" = "Математический анализ";
+
+/* Class = "UILabel"; text = "1 кн"; ObjectID = "1xv-OF-jOf"; */
+"1xv-OF-jOf.text" = "1 控制周";
+
+/* Class = "UILabel"; text = "8:00"; ObjectID = "2Tj-eD-5cQ"; */
+"2Tj-eD-5cQ.text" = "8:00";
+
+/* Class = "UITextField"; placeholder = "Ауд."; ObjectID = "2nk-62-Yxk"; */
+"2nk-62-Yxk.placeholder" = "报告厅";
+
+/* Class = "UITextField"; placeholder = "Группа"; ObjectID = "2v4-Lq-rJF"; */
+"2v4-Lq-rJF.placeholder" = "报告厅";
+
+/* Class = "UILabel"; text = "18-САИ-1"; ObjectID = "304-ZU-Bmc"; */
+"304-ZU-Bmc.text" = "18-САИ-1";
+
+/* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "3C2-tt-4ox"; */
+"3C2-tt-4ox.title" = "帐户";
+
+/* Class = "UITextField"; placeholder = "15:25"; ObjectID = "48v-HA-rJ1"; */
+"48v-HA-rJ1.placeholder" = "15:25";
+
+/* Class = "UITextField"; placeholder = "Дисциплина"; ObjectID = "5Fr-RW-93n"; */
+"5Fr-RW-93n.placeholder" = "学科";
+
+/* Class = "UILabel"; text = "Группа"; ObjectID = "5fD-aR-7eD"; */
+"5fD-aR-7eD.text" = "组";
+
+/* Class = "UILabel"; text = "Математический анализ"; ObjectID = "6CH-yd-EeW"; */
+"6CH-yd-EeW.text" = "Математический анализ";
+
+/* Class = "UITextField"; placeholder = "Фамилия"; ObjectID = "6aR-Ho-Fth"; */
+"6aR-Ho-Fth.placeholder" = "姓";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "6vM-iQ-Mfg"; */
+"6vM-iQ-Mfg.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Изменить расписание"; ObjectID = "71d-nI-02d"; */
+"71d-nI-02d.normalTitle" = "改变时间表";
+
+/* Class = "UISegmentedControl"; 7Fd-C9-fqd.segmentTitles[0] = "Чёт"; ObjectID = "7Fd-C9-fqd"; */
+"7Fd-C9-fqd.segmentTitles[0]" = "偶数";
+
+/* Class = "UISegmentedControl"; 7Fd-C9-fqd.segmentTitles[1] = "Нечёт"; ObjectID = "7Fd-C9-fqd"; */
+"7Fd-C9-fqd.segmentTitles[1]" = "奇";
+
+/* Class = "UITextField"; placeholder = "9:35"; ObjectID = "7wX-Ms-Azc"; */
+"7wX-Ms-Azc.placeholder" = "9:35";
+
+/* Class = "UISegmentedControl"; 8NU-Ar-9O7.segmentTitles[0] = "0"; ObjectID = "8NU-Ar-9O7"; */
+"8NU-Ar-9O7.segmentTitles[0]" = "0";
+
+/* Class = "UISegmentedControl"; 8NU-Ar-9O7.segmentTitles[1] = "1"; ObjectID = "8NU-Ar-9O7"; */
+"8NU-Ar-9O7.segmentTitles[1]" = "1";
+
+/* Class = "UISegmentedControl"; 8NU-Ar-9O7.segmentTitles[2] = "2"; ObjectID = "8NU-Ar-9O7"; */
+"8NU-Ar-9O7.segmentTitles[2]" = "2";
+
+/* Class = "UISegmentedControl"; 8NU-Ar-9O7.segmentTitles[3] = "3"; ObjectID = "8NU-Ar-9O7"; */
+"8NU-Ar-9O7.segmentTitles[3]" = "3";
+
+/* Class = "UISegmentedControl"; 8NU-Ar-9O7.segmentTitles[4] = "4"; ObjectID = "8NU-Ar-9O7"; */
+"8NU-Ar-9O7.segmentTitles[4]" = "4";
+
+/* Class = "UISegmentedControl"; 8NU-Ar-9O7.segmentTitles[5] = "5"; ObjectID = "8NU-Ar-9O7"; */
+"8NU-Ar-9O7.segmentTitles[5]" = "5";
+
+/* Class = "UISegmentedControl"; 8dQ-BO-Qep.segmentTitles[0] = "Этаж"; ObjectID = "8dQ-BO-Qep"; */
+"8dQ-BO-Qep.segmentTitles[0]" = "地板";
+
+/* Class = "UISegmentedControl"; 8dQ-BO-Qep.segmentTitles[1] = "Корпус"; ObjectID = "8dQ-BO-Qep"; */
+"8dQ-BO-Qep.segmentTitles[1]" = "住房";
+
+/* Class = "UIButton"; normalTitle = "Войти"; ObjectID = "8mo-El-PiW"; */
+"8mo-El-PiW.normalTitle" = "输入（登陆）";
+
+/* Class = "UITextField"; placeholder = "11:20"; ObjectID = "8t6-Io-LQo"; */
+"8t6-Io-LQo.placeholder" = "11:20";
+
+/* Class = "UITextField"; placeholder = "Ауд."; ObjectID = "ASy-rw-xRT"; */
+"ASy-rw-xRT.placeholder" = "报告厅";
+
+/* Class = "UITextField"; placeholder = "Номер студенческого"; ObjectID = "DrT-Ew-3jX"; */
+"DrT-Ew-3jX.placeholder" = "学生证编号";
+
+/* Class = "UILabel"; text = "Господин Калашников объелся бигудей и стал автоматом"; ObjectID = "ENl-DX-FGF"; */
+"ENl-DX-FGF.text" = "Господин Калашников объелся бигудей и стал автоматом";
+
+/* Class = "UIViewController"; title = "Редактор"; ObjectID = "Ei3-l9-10j"; */
+"Ei3-l9-10j.title" = "编辑";
+
+/* Class = "UINavigationItem"; title = "Новости"; ObjectID = "F6h-GV-kak"; */
+"F6h-GV-kak.title" = "新闻";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "FX9-HY-aET"; */
+"FX9-HY-aET.text" = "3";
+
+/* Class = "UILabel"; text = "сдан"; ObjectID = "Fz4-MZ-2Pd"; */
+"Fz4-MZ-2Pd.text" = "传递";
+
+/* Class = "UITextField"; placeholder = "18:45"; ObjectID = "G1m-vL-dSy"; */
+"G1m-vL-dSy.placeholder" = "18:45";
+
+/* Class = "UITextField"; placeholder = "13:40"; ObjectID = "GRF-QS-lNK"; */
+"GRF-QS-lNK.placeholder" = "13:40";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "Gac-Y0-6aQ"; */
+"Gac-Y0-6aQ.text" = "2";
+
+/* Class = "UILabel"; text = "Математический анализ"; ObjectID = "Gf3-fe-vNx"; */
+"Gf3-fe-vNx.text" = "Математический анализ";
+
+/* Class = "UILabel"; text = "пропусков"; ObjectID = "HTZ-5T-Udm"; */
+"HTZ-5T-Udm.text" = "失踪";
+
+/* Class = "UINavigationItem"; title = "Расписание"; ObjectID = "Jb2-qV-Vgy"; */
+"Jb2-qV-Vgy.title" = "时间表";
+
+/* Class = "UILabel"; text = "9:30"; ObjectID = "JeZ-U1-fDd"; */
+"JeZ-U1-fDd.text" = "9:30";
+
+/* Class = "UILabel"; text = "Сергеевич"; ObjectID = "KIh-yX-ZCr"; */
+"KIh-yX-ZCr.text" = "Сергеевич";
+
+/* Class = "UITextField"; placeholder = "Ауд."; ObjectID = "KPz-Kj-fCL"; */
+"KPz-Kj-fCL.placeholder" = "报告厅";
+/* Class = "UIButton"; normalTitle = "Сохранить"; ObjectID = "Knz-Gm-3Jr"; */
+"Knz-Gm-3Jr.normalTitle" = "保留";
+
+/* Class = "UILabel"; text = "Математический анализ"; ObjectID = "MAm-XI-P7B"; */
+"MAm-XI-P7B.text" = "Математический анализ";
+
+/* Class = "UITextField"; placeholder = "Ауд."; ObjectID = "MpD-Wz-64m"; */
+"MpD-Wz-64m.placeholder" = "报告厅";
+
+/* Class = "UITextField"; placeholder = "Дисциплина"; ObjectID = "N8F-ei-V0W"; */
+"N8F-ei-V0W.placeholder" = "学科";
+
+/* Class = "UITextField"; placeholder = "Ауд."; ObjectID = "Ogl-hn-ICB"; */
+"Ogl-hn-ICB.placeholder" = "报告厅";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "P2k-dw-vmM"; */
+"P2k-dw-vmM.text" = "4";
+
+/* Class = "UILabel"; text = "8:00"; ObjectID = "Pbn-jM-Qkx"; */
+"Pbn-jM-Qkx.text" = "8:00";
+
+/* Class = "UITextField"; placeholder = "Отчество"; ObjectID = "Q4k-2x-Xwj"; */
+"Q4k-2x-Xwj.placeholder" = "中间名字";
+
+/* Class = "UITabBarItem"; title = "Новости"; ObjectID = "QAg-kL-QGu"; */
+"QAg-kL-QGu.title" = "Новости";
+
+/* Class = "UILabel"; text = "183294"; ObjectID = "QH0-U6-CTs"; */
+"QH0-U6-CTs.text" = "183294";
+
+/* Class = "UITextField"; placeholder = "Дисциплина"; ObjectID = "R52-e6-NwU"; */
+"R52-e6-NwU.placeholder" = "学科";
+
+/* Class = "UILabel"; text = "2 кн"; ObjectID = "RBs-9b-qQA"; */
+"RBs-9b-qQA.text" = "2 控制周";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "RMy-9a-xvo"; */
+"RMy-9a-xvo.text" = "6";
+
+/* Class = "UILabel"; text = "пропусков"; ObjectID = "RUQ-2I-FIX"; */
+"RUQ-2I-FIX.text" = "失踪";
+
+/* Class = "UILabel"; text = "8:00"; ObjectID = "Rca-xt-ZVT"; */
+"Rca-xt-ZVT.text" = "8:00";
+
+/* Class = "UILabel"; text = "Алексей"; ObjectID = "Rlc-dU-RKn"; */
+"Rlc-dU-RKn.text" = "Алексей";
+
+/* Class = "UILabel"; text = "8:00"; ObjectID = "S3m-Pv-5GV"; */
+"S3m-Pv-5GV.text" = "8:00";
+
+/* Class = "UITextField"; placeholder = "Ауд."; ObjectID = "Sfw-oy-AVH"; */
+"Sfw-oy-AVH.placeholder" = "报告厅";
+
+/* Class = "UILabel"; text = "Математический анализ"; ObjectID = "T3s-Hq-l4o"; */
+"T3s-Hq-l4o.text" = "Математический анализ";
+
+/* Class = "UIButton"; normalTitle = "Найти"; ObjectID = "TKk-WC-sJL"; */
+"TKk-WC-sJL.normalTitle" = "搜索";
+
+/* Class = "UILabel"; text = "зачёт:"; ObjectID = "Tn4-7X-4fX"; */
+"Tn4-7X-4fX.text" = ""; //зачет
+
+/* Class = "UITextField"; placeholder = "Дисциплина"; ObjectID = "VPm-Ey-Koh"; */
+"VPm-Ey-Koh.placeholder" = "学科";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "WST-vq-dYa"; */
+"WST-vq-dYa.text" = "1";
+
+/* Class = "UITextField"; placeholder = "9:45"; ObjectID = "Wnv-Rf-e9l"; */
+"Wnv-Rf-e9l.placeholder" = "9:45";
+
+/* Class = "UILabel"; text = "Номер билета"; ObjectID = "Wny-tX-2LK"; */
+"Wny-tX-2LK.text" = "学生身份证号码";
+
+/* Class = "UILabel"; text = "Специальные главы математического анализа"; ObjectID = "WtN-1Q-Uyy"; */
+"WtN-1Q-Uyy.text" = "Специальные главы математического анализа";
+
+/* Class = "UILabel"; text = "Понедельник, 30 марта"; ObjectID = "XRX-OL-MrL"; */
+"XRX-OL-MrL.text" = "Понедельник, 30 марта";
+
+/* Class = "UITextField"; placeholder = "Дисциплина"; ObjectID = "XkI-uY-PXa"; */
+"XkI-uY-PXa.placeholder" = "学科";
+
+/* Class = "UIBarButtonItem"; title = "Все оценки"; ObjectID = "YCJ-Rp-LMK"; */
+"YCJ-Rp-LMK.title" = "所有等级";
+
+/* Class = "UITextField"; placeholder = "8:00"; ObjectID = "YLz-Us-6cv"; */
+"YLz-Us-6cv.placeholder" = "8:00";
+
+/* Class = "UILabel"; text = "48"; ObjectID = "YtM-Hm-kJ3"; */
+"YtM-Hm-kJ3.text" = "48";
+
+/* Class = "UITabBarItem"; title = "Навигация"; ObjectID = "Zs8-GU-WhD"; */
+"Zs8-GU-WhD.title" = "导航";
+
+/* Class = "UITabBarItem"; title = "Навигация"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "导航";
+
+/* Class = "UILabel"; text = "9:30"; ObjectID = "ass-at-I0h"; */
+"ass-at-I0h.text" = "9:30";
+
+/* Class = "UILabel"; text = "0000"; ObjectID = "bZD-ua-H3I"; */
+"bZD-ua-H3I.text" = "0000";
+
+/* Class = "UINavigationItem"; title = "Навигация"; ObjectID = "bn8-dM-fhZ"; */
+"bn8-dM-fhZ.title" = "导航";
+
+/* Class = "UILabel"; text = "Математический анализ"; ObjectID = "c4C-Uj-45z"; */
+"c4C-Uj-45z.text" = "Математический анализ";
+
+/* Class = "UILabel"; text = "9:30"; ObjectID = "c6W-2z-kla"; */
+"c6W-2z-kla.text" = "9:30";
+
+/* Class = "UILabel"; text = "Иностранный язык"; ObjectID = "cE9-1x-InU"; */
+"cE9-1x-InU.text" = "Иностранный язык";
+
+/* Class = "UITabBarItem"; title = "Оценки"; ObjectID = "dLh-yQ-EHc"; */
+"dLh-yQ-EHc.title" = "评测";
+
+/* Class = "UILabel"; text = "8:00"; ObjectID = "dRF-U2-b1A"; */
+"dRF-U2-b1A.text" = "8:00";
+
+/* Class = "UITextField"; placeholder = "15:15"; ObjectID = "deI-pl-21z"; */
+"deI-pl-21z.placeholder" = "15:15";
+
+/* Class = "UINavigationItem"; title = "Редактор"; ObjectID = "dke-T1-Oqo"; */
+"dke-T1-Oqo.title" = "编辑";
+
+/* Class = "UILabel"; text = "Код можно получить, связавшись с нами:"; ObjectID = "ect-Ki-Tc8"; */
+"ect-Ki-Tc8.text" = "该代码可以与我们联系获得：";
+
+/* Class = "UILabel"; text = "Шерстнев"; ObjectID = "ewO-RW-mkV"; */
+"ewO-RW-mkV.text" = "Шерстнев";
+
+/* Class = "UILabel"; text = "Понедельник"; ObjectID = "f3Q-3K-kTO"; */
+"f3Q-3K-kTO.text" = "Понедельник";
+
+/* Class = "UIBarButtonItem"; title = "К расписанию"; ObjectID = "fNi-SU-zzz"; */
+"fNi-SU-zzz.title" = "要安排";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "fXS-pe-h7Y"; */
+"fXS-pe-h7Y.title" = "前";
+
+/* Class = "UITextField"; placeholder = "Дисциплина"; ObjectID = "gls-FY-2XQ"; */
+"gls-FY-2XQ.placeholder" = "学科";
+
+/* Class = "UINavigationItem"; title = "Оценки"; ObjectID = "gp7-C4-Kbj"; */
+"gp7-C4-Kbj.title" = "评测";
+
+/* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "gta-Ev-cc1"; */
+"gta-Ev-cc1.title" = "帐户";
+
+/* Class = "UITextField"; placeholder = "11:35"; ObjectID = "i0a-FB-bcz"; */
+"i0a-FB-bcz.placeholder" = "11:35";
+
+/* Class = "UITextField"; placeholder = "Введите аудиторию.."; ObjectID = "ioB-yX-VLD"; */
+"ioB-yX-VLD.placeholder" = "进入观众..";
+
+/* Class = "UIButton"; normalTitle = "Email: nntuapp@inbox.ru"; ObjectID = "ivW-JE-dzi"; */
+"ivW-JE-dzi.normalTitle" = "Email: nntuapp@inbox.ru";
+
+/* Class = "UITabBarItem"; title = "Новости"; ObjectID = "jPr-Jr-U6M"; */
+"jPr-Jr-U6M.title" = "新闻";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "kMd-Ch-HrV"; */
+"kMd-Ch-HrV.text" = "5";
+
+/* Class = "UITextField"; placeholder = "Введите код"; ObjectID = "kXy-Rq-0AC"; */
+"kXy-Rq-0AC.placeholder" = "输入一个代码";
+
+/* Class = "UITextField"; placeholder = "13:10"; ObjectID = "kfI-4O-hKa"; */
+"kfI-4O-hKa.placeholder" = "13:10";
+
+/* Class = "UILabel"; text = "Сегодня 20 марта, вт"; ObjectID = "m9W-Il-hzq"; */
+"m9W-Il-hzq.text" = "Сегодня 20 марта, вт";
+
+/* Class = "UILabel"; text = "9:30"; ObjectID = "mO4-1O-7G0"; */
+"mO4-1O-7G0.text" = "9:30";
+
+/* Class = "UILabel"; text = "8:00"; ObjectID = "mtL-4z-5Lv"; */
+"mtL-4z-5Lv.text" = "8:00";
+
+/* Class = "UITabBarItem"; title = "Расписание"; ObjectID = "n7I-gQ-rnx"; */
+"n7I-gQ-rnx.title" = "时间表";
+
+/* Class = "UILabel"; text = "9:30"; ObjectID = "nBg-21-u5N"; */
+"nBg-21-u5N.text" = "9:30";
+
+/* Class = "UINavigationItem"; title = "Настройки"; ObjectID = "o2C-T4-4pE"; */
+"o2C-T4-4pE.title" = "帐户";
+
+/* Class = "UITextField"; placeholder = "17:10"; ObjectID = "oA7-2M-MzW"; */
+"oA7-2M-MzW.placeholder" = "17:10";
+
+/* Class = "UIButton"; normalTitle = "Группа ВК"; ObjectID = "oRB-fl-nwJ"; */
+"oRB-fl-nwJ.normalTitle" = "VK集团";
+
+/* Class = "UILabel"; text = "9:30"; ObjectID = "pQz-j3-Yy6"; */
+"pQz-j3-Yy6.text" = "9:30";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pXx-wv-Uwb"; */
+"pXx-wv-Uwb.text" = "Label";
+
+/* Class = "UISegmentedControl"; pox-u6-wXg.segmentTitles[0] = "Чёт"; ObjectID = "pox-u6-wXg"; */
+"pox-u6-wXg.segmentTitles[0]" = "偶数";
+
+/* Class = "UISegmentedControl"; pox-u6-wXg.segmentTitles[1] = "Нечёт"; ObjectID = "pox-u6-wXg"; */
+"pox-u6-wXg.segmentTitles[1]" = "奇";
+
+/* Class = "UISegmentedControl"; qE9-HA-ViT.segmentTitles[0] = "1"; ObjectID = "qE9-HA-ViT"; */
+"qE9-HA-ViT.segmentTitles[0]" = "1";
+
+/* Class = "UISegmentedControl"; qE9-HA-ViT.segmentTitles[1] = "2"; ObjectID = "qE9-HA-ViT"; */
+"qE9-HA-ViT.segmentTitles[1]" = "2";
+
+/* Class = "UISegmentedControl"; qE9-HA-ViT.segmentTitles[2] = "3"; ObjectID = "qE9-HA-ViT"; */
+"qE9-HA-ViT.segmentTitles[2]" = "3";
+
+/* Class = "UISegmentedControl"; qE9-HA-ViT.segmentTitles[3] = "4"; ObjectID = "qE9-HA-ViT"; */
+"qE9-HA-ViT.segmentTitles[3]" = "4";
+
+/* Class = "UISegmentedControl"; qE9-HA-ViT.segmentTitles[4] = "5"; ObjectID = "qE9-HA-ViT"; */
+"qE9-HA-ViT.segmentTitles[4]" = "5";
+
+/* Class = "UISegmentedControl"; qE9-HA-ViT.segmentTitles[5] = "6"; ObjectID = "qE9-HA-ViT"; */
+"qE9-HA-ViT.segmentTitles[5]" = "6";
+
+/* Class = "UIButton"; normalTitle = "Далее"; ObjectID = "qtj-ua-Dk2"; */
+"qtj-ua-Dk2.normalTitle" = "进一步";
+
+/* Class = "UILabel"; text = "зачет"; ObjectID = "rSM-yC-Uxf"; */
+"rSM-yC-Uxf.text" = "阶梯";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wWs-ai-mhk"; */
+"wWs-ai-mhk.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "17:00"; ObjectID = "wfU-Vd-Lf9"; */
+"wfU-Vd-Lf9.placeholder" = "17:00";
+
+/* Class = "UILabel"; text = "Для того, чтобы изменить расписание, необходим код"; ObjectID = "wlA-ha-G2V"; */
+"wlA-ha-G2V.text" = "要改变日程安排，还需要编写代码";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "yR4-Gd-47R"; */
+"yR4-Gd-47R.text" = "0";
+
+/* Class = "UILabel"; text = "50"; ObjectID = "yRR-K0-Duu"; */
+"yRR-K0-Duu.text" = "50";
+
+/* Class = "UILabel"; text = "1 кн"; ObjectID = "zI4-zb-xS3"; */
+"zI4-zb-xS3.text" = "1 控制周";
+
+/* Class = "UILabel"; text = "Поиск аудитории"; ObjectID = "4nB-bs-UgR"; */
+"4nB-bs-UgR.text" = "搜索观众";
+
+//Названия дней недели в редакторе
+"uSf-VO-F12.segmentTitles[0]" = "MO";
+"uSf-VO-F12.segmentTitles[1]" = "TU";
+"uSf-VO-F12.segmentTitles[2]" = "WE";
+"uSf-VO-F12.segmentTitles[3]" = "TH";
+"uSf-VO-F12.segmentTitles[4]" = "FR";
+"uSf-VO-F12.segmentTitles[5]" = "SA";
+"uSf-VO-F12.segmentTitles[6]" = "SU";
+
+

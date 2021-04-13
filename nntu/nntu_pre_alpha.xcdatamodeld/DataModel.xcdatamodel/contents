@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C5061b" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreDisTime" representedClassName="CoreDisTime" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="room" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <attribute name="stopTime" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="LessonData" representedClassName="LessonData" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="rooms" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <attribute name="stopTime" optional="YES" attributeType="String"/>
+        <attribute name="teacher" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="weeks" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MarkData" representedClassName="MarkData" syncable="YES" codeGenerationType="class">
+        <attribute name="firstWeek" optional="YES" attributeType="String"/>
+        <attribute name="missedFirstWeek" optional="YES" attributeType="String"/>
+        <attribute name="missedSecondWeek" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="result" optional="YES" attributeType="String"/>
+        <attribute name="secondWeek" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CoreDisTime" positionX="-27" positionY="18" width="128" height="103"/>
+        <element name="LessonData" positionX="-27" positionY="54" width="128" height="14"/>
+        <element name="MarkData" positionX="-27" positionY="54" width="128" height="134"/>
+    </elements>
+</model>

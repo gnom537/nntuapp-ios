@@ -1,0 +1,16 @@
+MAIN:
+
+    bundle app: nntu.appfinal
+    bundle widget: nntu.appfinal.superwidget
+    bundle group: group.nntu.share
+
+Other: 
+
+    bundle app: com.nntu
+    bundle widget: com.nntu.widget
+    bundle group: group.nntu.WidgetShare
+
+Чтобы запустить нужно:
+    - сменить аккаунт
+    - вписать нужные бандлы в виджет и приложение ( см выше )
+    - выбрать нужные BUNDLEGROUP в DataStorage (23 строка для аккаунта с подпиской)

@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Расписание на весь день"; ObjectID = "9f2-4a-sxk"; */
+"9f2-4a-sxk.text" = "الجدول الزمني لهذا اليوم";
+
+/* Class = "UILabel"; text = "6 пары нет"; ObjectID = "AQ2-WF-2y7"; */
+"AQ2-WF-2y7.text" = "6 пары нет";
+
+/* Class = "UILabel"; text = "1 пары нет"; ObjectID = "QA5-ah-Wj0"; */
+"QA5-ah-Wj0.text" = "1 пары нет";
+
+/* Class = "UILabel"; text = "4 пары нет"; ObjectID = "acr-iV-AgB"; */
+"acr-iV-AgB.text" = "4 пары нет";
+
+/* Class = "UILabel"; text = "3 пары нет"; ObjectID = "bow-HU-ccs"; */
+"bow-HU-ccs.text" = "3 пары нет";
+
+/* Class = "UILabel"; text = "Сегодня 26 июля, вс"; ObjectID = "eme-vD-035"; */
+"eme-vD-035.text" = "Сегодня 26 июля, вс";
+
+/* Class = "UILabel"; text = "5 пары нет"; ObjectID = "fGA-el-9dk"; */
+"fGA-el-9dk.text" = "5 пары нет";
+
+/* Class = "UILabel"; text = "2 пары нет"; ObjectID = "g8b-4V-muf"; */
+"g8b-4V-muf.text" = "2 пары нет";
+
+/* Class = "UILabel"; text = "Загрузка..."; ObjectID = "te1-nO-Ulx"; */
+"te1-nO-Ulx.text" = "جار التحميل...";

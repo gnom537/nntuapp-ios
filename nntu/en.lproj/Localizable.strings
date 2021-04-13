@@ -1,0 +1,97 @@
+/*
+  Localization.strings
+  nntu pre-alpha
+
+  Created by Алексей Шерстнёв on 02.08.2020.
+  Copyright © 2020 Алексей Шерстнёв. All rights reserved.
+*/
+
+"Загрузка..." = "Loading...";
+
+"Новости" = "News";
+
+"Оценки" = "Marks";
+
+"Ошибка" = "Error";
+
+"Загрузка новости..." = "The article is loading...";
+
+"Аудитория не найдена" = "The room is not found";
+
+"Введите аудиторию.." = "Enter the room..";
+
+"семестр" = "semester";
+
+"Произошла ошибка при загрузке" = "A loading error has occurred";
+
+"Понедельник" = "Monday";
+
+"Вторник" = "Tuesday";
+
+"Среда" = "Wednesday";
+
+"Четверг" = "Thursday";
+
+"Пятница" = "Friday";
+
+"Суббота" = "Saturday";
+
+"Группа:" = "Group:";
+
+"Выйти" = "Sign out";
+
+"Войти" = "Sign in";
+
+"Вход не выполнен" = "You aren't signed in";
+
+"Введите код!" = "Enter the code!";
+
+"Неверный код" = "The code is wrong";
+
+"Преподаватель" = "Teacher";
+
+"Кем вы являетесь?" = "Who are you?";
+
+"Студент бакалавриата/специалитета" = "Bachelor / specialty student";
+
+"Студент магистратуры" = "Master degree student";
+
+"Отмена" = "Cancel";
+
+"Вы уверены?" = "Are you sure?";
+
+"Дополнительные действия" = "More actions";
+
+"Очистить день" = "Clear the day";
+
+"Очистить неделю" = "Clear the week";
+
+"Перенести день с другой недели" = "Copy the day from another week";
+
+"Показать существующее расписание" = "Show the timetable that already exists";
+
+"пары нет" =  "lesson is missing";
+
+"Сохранено" = "Saved";
+
+"Понятно" = "OK";
+
+"Зачем нужен код?" = "Is the code necessary?";
+
+"Сообщение с кодом" = "Yes, it is. We need it to protect the timetable from harmful random changes. With giving a code we can be aware of who the person is and if something went wrong we can block the spammer and never give the code again. The code updates every 24 hours.";
+
+"Кредитс" = "NNTU app\nAlex Sherstnev\nDmitry Yudin";
+
+"Футер автозагрузки" = "If this function is turned on, the app will prefer online timetable over the offline one. If you don't want to lose your offline timetable, turn off this function";
+
+"Футер загрузки на сервер" = "You can share your timetable with your group, but you need a code to do it. You can contact us to get the code - our contacts are down below.";
+
+"Пассивный футер календаря" = "Your timetable isn't transferred to a stock calendar app on your phone. If you want it to be transferred, turn on this feature.";
+
+"Активный футер календаря" = "Now your timetable is in your calendar! Now you can schedule your weeks with precise information about the lessons you have.";
+
+"Удалять календарь?" = "You have turned off automatical transfering of the timetable to your calendar. The copy of the timetable is still there. Do you want to delete it?";
+"Расписание еще в календаре" = "The timetable is still in the calendar";
+"Удалить" = "Delete";
+"Оставить" = "Retain";
+
