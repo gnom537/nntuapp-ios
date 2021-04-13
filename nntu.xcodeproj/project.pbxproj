@@ -70,7 +70,6 @@
 		F0A0FE5E25C182490064684B /* CoreDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0FE5D25C182490064684B /* CoreDataStructs.swift */; };
 		F0A0FE5F25C182490064684B /* CoreDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0FE5D25C182490064684B /* CoreDataStructs.swift */; };
 		F0A0FE6025C182F90064684B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0FE1B25C17A800064684B /* CoreDataStack.swift */; };
-		F0A4D69D24FAA54600B837DE /* README in Resources */ = {isa = PBXBuildFile; fileRef = F0A4D69C24FAA54600B837DE /* README */; };
 		F0B4251425C1747900B6AF1B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03F36E425C171A2004536EE /* WidgetKit.framework */; };
 		F0B4251525C1747900B6AF1B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03F36E625C171A2004536EE /* SwiftUI.framework */; };
 		F0B4251825C1747900B6AF1B /* WidgetLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B4251725C1747900B6AF1B /* WidgetLessons.swift */; };
@@ -198,7 +197,6 @@
 		F084532C25CE00E700E79563 /* DateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
 		F0A0FE1B25C17A800064684B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F0A0FE5D25C182490064684B /* CoreDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStructs.swift; sourceTree = "<group>"; };
-		F0A4D69C24FAA54600B837DE /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		F0AF39F124CDB03900C056DB /* НГТУ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "НГТУ.entitlements"; sourceTree = "<group>"; };
 		F0B4251325C1747900B6AF1B /* WidgetLessonsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLessonsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B4251725C1747900B6AF1B /* WidgetLessons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLessons.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 			children = (
 				F01106F025C319FB006433CE /* WidgetLessonsExtension.entitlements */,
 				F03F371A25C17203004536EE /* WidgetExtension.entitlements */,
-				F0A4D69C24FAA54600B837DE /* README */,
 				DFE77D7F24112CBE00DF29DE /* PodFile */,
 				DF310F6B23F8A30000540A6C /* nntu */,
 				DF310F8423F8A30100540A6C /* nntuTests */,
@@ -576,7 +573,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0A4D69D24FAA54600B837DE /* README in Resources */,
 				DF6E1C5024D7342C00E04AE8 /* Localizable.strings in Resources */,
 				DF310F7B23F8A30100540A6C /* LaunchScreen.storyboard in Resources */,
 				DF310F7823F8A30100540A6C /* Assets.xcassets in Resources */,
@@ -962,7 +958,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "nntu pre-alpha/НГТУ.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "nntu/НГТУ.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 46;
@@ -988,7 +984,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "nntu pre-alpha/НГТУ.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "nntu/НГТУ.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 46;
