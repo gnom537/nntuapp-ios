@@ -1,0 +1,6 @@
+framework module Pods_widgetTimeTable {
+  umbrella header "Pods-widgetTimeTable-umbrella.h"
+
+  export *
+  module * { export * }
+}

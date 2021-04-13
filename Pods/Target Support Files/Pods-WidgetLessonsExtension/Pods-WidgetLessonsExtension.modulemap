@@ -1,0 +1,6 @@
+framework module Pods_WidgetLessonsExtension {
+  umbrella header "Pods-WidgetLessonsExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275CC148A4CA45D445302F5C /* Pods_widgetTimeTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3339AA1C66E9DFFA68CD9F /* Pods_widgetTimeTable.framework */; };
+		41B4879D191307CD26C49DA9 /* Pods_WidgetLessonsExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E34767C1BC87E6B228AD83 /* Pods_WidgetLessonsExtension.framework */; };
+		5FC2844B7B29546EE335D1F0 /* Pods_nntu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A66F203EF52D68BA688F9225 /* Pods_nntu.framework */; };
 		DF1E7389242A980B000F1C2C /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1E7388242A980B000F1C2C /* CodeViewController.swift */; };
 		DF2C8B0423FDB0B900839FEE /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C8B0323FDB0B900839FEE /* ArticleTableViewController.swift */; };
 		DF2C8B0623FDB1F300839FEE /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C8B0523FDB1F300839FEE /* ArticleTableViewCell.swift */; };
@@ -47,7 +50,6 @@
 		DFB3D4C125BB856800C5DF5A /* passiveTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB3D4C025BB856800C5DF5A /* passiveTVCell.swift */; };
 		DFE77D852411473700DF29DE /* MarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE77D842411473700DF29DE /* MarkCell.swift */; };
 		DFFC21AB2504196500FC256C /* loadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFC21AA2504196500FC256C /* loadingCell.swift */; };
-		EE8A059B6F3BDF33CB102A18 /* Pods_widgetTimeTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60E6AE6AE4EF2B309BB5E36 /* Pods_widgetTimeTable.framework */; };
 		F00DE24625D1356C005C16BA /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DE24525D1356C005C16BA /* MediumWidgetView.swift */; };
 		F04354462603AD4C00F59A0E /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04354452603AD4C00F59A0E /* SmallWidget.swift */; };
 		F043544B2603AE3400F59A0E /* NormalWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043544A2603AE3400F59A0E /* NormalWidget.swift */; };
@@ -79,8 +81,6 @@
 		F0C13CB324CF17E10050FDCB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C13CB124CF17E10050FDCB /* MainInterface.storyboard */; };
 		F0C13CB724CF17E10050FDCB /* widgetTimeTable.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0C13CAC24CF17E10050FDCB /* widgetTimeTable.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F0C13CBC24CF20B90050FDCB /* nntu_pre_alpha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF73FD142430EB01004E7699 /* nntu_pre_alpha.xcdatamodeld */; };
-		F94E5A4B2F44507E895FBA26 /* Pods_WidgetLessonsExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8602C7DF87D80EED76DA837 /* Pods_WidgetLessonsExtension.framework */; };
-		FC9D86137CC7B5286C59830F /* Pods_nntu_pre_alpha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B868C7E1B534A9F0CA0CBC8A /* Pods_nntu_pre_alpha.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,14 +116,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		020DA2CB69F3A146FB13A405 /* Pods-WidgetLessonsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetLessonsExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetLessonsExtension/Pods-WidgetLessonsExtension.release.xcconfig"; sourceTree = "<group>"; };
-		21C170E44EDF9829AC8AE1CA /* Pods-widgetTimeTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetTimeTable.release.xcconfig"; path = "Target Support Files/Pods-widgetTimeTable/Pods-widgetTimeTable.release.xcconfig"; sourceTree = "<group>"; };
-		69677935D3F52EFD90EBCDE1 /* Pods-nntu pre-alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nntu pre-alpha.debug.xcconfig"; path = "Target Support Files/Pods-nntu pre-alpha/Pods-nntu pre-alpha.debug.xcconfig"; sourceTree = "<group>"; };
-		82DE41307E4CA488F211F23E /* Pods-widgetTimeTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetTimeTable.debug.xcconfig"; path = "Target Support Files/Pods-widgetTimeTable/Pods-widgetTimeTable.debug.xcconfig"; sourceTree = "<group>"; };
-		A60E6AE6AE4EF2B309BB5E36 /* Pods_widgetTimeTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_widgetTimeTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5ED93C7593C4D4DE8E6E1D3 /* Pods-nntu pre-alpha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nntu pre-alpha.release.xcconfig"; path = "Target Support Files/Pods-nntu pre-alpha/Pods-nntu pre-alpha.release.xcconfig"; sourceTree = "<group>"; };
-		B8602C7DF87D80EED76DA837 /* Pods_WidgetLessonsExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetLessonsExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B868C7E1B534A9F0CA0CBC8A /* Pods_nntu_pre_alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nntu_pre_alpha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10692A6C7745955D937EAC79 /* Pods-WidgetLessonsExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetLessonsExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetLessonsExtension/Pods-WidgetLessonsExtension.release.xcconfig"; sourceTree = "<group>"; };
+		3507785053E422F71B6D32AC /* Pods-WidgetLessonsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetLessonsExtension.debug.xcconfig"; path = "Target Support Files/Pods-WidgetLessonsExtension/Pods-WidgetLessonsExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		358599651BE15A91A913D938 /* Pods-widgetTimeTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetTimeTable.debug.xcconfig"; path = "Target Support Files/Pods-widgetTimeTable/Pods-widgetTimeTable.debug.xcconfig"; sourceTree = "<group>"; };
+		50E34767C1BC87E6B228AD83 /* Pods_WidgetLessonsExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetLessonsExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7613A50D7AAC4A31DFCA78CF /* Pods-nntu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nntu.debug.xcconfig"; path = "Target Support Files/Pods-nntu/Pods-nntu.debug.xcconfig"; sourceTree = "<group>"; };
+		9CFACBD420766B75D4503B77 /* Pods-widgetTimeTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetTimeTable.release.xcconfig"; path = "Target Support Files/Pods-widgetTimeTable/Pods-widgetTimeTable.release.xcconfig"; sourceTree = "<group>"; };
+		A66F203EF52D68BA688F9225 /* Pods_nntu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nntu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE3339AA1C66E9DFFA68CD9F /* Pods_widgetTimeTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_widgetTimeTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1E7388242A980B000F1C2C /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		DF1E738E242AC997000F1C2C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		DF1E738F242AC997000F1C2C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		F0C13CB424CF17E10050FDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0C13CBB24CF18CD0050FDCB /* widgetTimeTable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetTimeTable.entitlements; sourceTree = "<group>"; };
 		F0C1EDED24CF003F0000696D /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F304ED9137EEC5F10576FF12 /* Pods-WidgetLessonsExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetLessonsExtension.debug.xcconfig"; path = "Target Support Files/Pods-WidgetLessonsExtension/Pods-WidgetLessonsExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		F29A435A9290C620306CEC5F /* Pods-nntu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nntu.release.xcconfig"; path = "Target Support Files/Pods-nntu/Pods-nntu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC9D86137CC7B5286C59830F /* Pods_nntu_pre_alpha.framework in Frameworks */,
+				5FC2844B7B29546EE335D1F0 /* Pods_nntu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +228,7 @@
 			files = (
 				F0B4251525C1747900B6AF1B /* SwiftUI.framework in Frameworks */,
 				F0B4251425C1747900B6AF1B /* WidgetKit.framework in Frameworks */,
-				F94E5A4B2F44507E895FBA26 /* Pods_WidgetLessonsExtension.framework in Frameworks */,
+				41B4879D191307CD26C49DA9 /* Pods_WidgetLessonsExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0C13CAD24CF17E10050FDCB /* NotificationCenter.framework in Frameworks */,
-				EE8A059B6F3BDF33CB102A18 /* Pods_widgetTimeTable.framework in Frameworks */,
+				275CC148A4CA45D445302F5C /* Pods_widgetTimeTable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,12 +247,12 @@
 		5BD3C649B0D131CDC3F74097 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F304ED9137EEC5F10576FF12 /* Pods-WidgetLessonsExtension.debug.xcconfig */,
-				020DA2CB69F3A146FB13A405 /* Pods-WidgetLessonsExtension.release.xcconfig */,
-				69677935D3F52EFD90EBCDE1 /* Pods-nntu pre-alpha.debug.xcconfig */,
-				B5ED93C7593C4D4DE8E6E1D3 /* Pods-nntu pre-alpha.release.xcconfig */,
-				82DE41307E4CA488F211F23E /* Pods-widgetTimeTable.debug.xcconfig */,
-				21C170E44EDF9829AC8AE1CA /* Pods-widgetTimeTable.release.xcconfig */,
+				3507785053E422F71B6D32AC /* Pods-WidgetLessonsExtension.debug.xcconfig */,
+				10692A6C7745955D937EAC79 /* Pods-WidgetLessonsExtension.release.xcconfig */,
+				7613A50D7AAC4A31DFCA78CF /* Pods-nntu.debug.xcconfig */,
+				F29A435A9290C620306CEC5F /* Pods-nntu.release.xcconfig */,
+				358599651BE15A91A913D938 /* Pods-widgetTimeTable.debug.xcconfig */,
+				9CFACBD420766B75D4503B77 /* Pods-widgetTimeTable.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -454,9 +454,9 @@
 				F055840124CDA6140020B6BB /* NotificationCenter.framework */,
 				F03F36E425C171A2004536EE /* WidgetKit.framework */,
 				F03F36E625C171A2004536EE /* SwiftUI.framework */,
-				B8602C7DF87D80EED76DA837 /* Pods_WidgetLessonsExtension.framework */,
-				B868C7E1B534A9F0CA0CBC8A /* Pods_nntu_pre_alpha.framework */,
-				A60E6AE6AE4EF2B309BB5E36 /* Pods_widgetTimeTable.framework */,
+				50E34767C1BC87E6B228AD83 /* Pods_WidgetLessonsExtension.framework */,
+				A66F203EF52D68BA688F9225 /* Pods_nntu.framework */,
+				BE3339AA1C66E9DFFA68CD9F /* Pods_widgetTimeTable.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -468,12 +468,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF310F9523F8A30100540A6C /* Build configuration list for PBXNativeTarget "nntu" */;
 			buildPhases = (
-				4EEC055B0591D5558C90D3D7 /* [CP] Check Pods Manifest.lock */,
+				0CD5A9BCE4900CA9DD4020D6 /* [CP] Check Pods Manifest.lock */,
 				DF310F6523F8A30000540A6C /* Sources */,
 				DF310F6623F8A30000540A6C /* Frameworks */,
 				DF310F6723F8A30000540A6C /* Resources */,
 				F055841024CDA6140020B6BB /* Embed App Extensions */,
-				FAFA326B257BFD48ADE82572 /* [CP] Embed Pods Frameworks */,
+				8C9998E95ADB01DCC9253D6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -490,7 +490,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0B4251F25C1747D00B6AF1B /* Build configuration list for PBXNativeTarget "WidgetLessonsExtension" */;
 			buildPhases = (
-				5EA7BF512AC05AA3EF3C4A57 /* [CP] Check Pods Manifest.lock */,
+				A2132D8870DDF0AB50024F93 /* [CP] Check Pods Manifest.lock */,
 				F0B4250F25C1747900B6AF1B /* Sources */,
 				F0B4251025C1747900B6AF1B /* Frameworks */,
 				F0B4251125C1747900B6AF1B /* Resources */,
@@ -508,7 +508,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0C13CB824CF17E10050FDCB /* Build configuration list for PBXNativeTarget "widgetTimeTable" */;
 			buildPhases = (
-				9BB33E87CBEF6D6CF01CAA12 /* [CP] Check Pods Manifest.lock */,
+				6CE562D2DA3787A74C2F2C71 /* [CP] Check Pods Manifest.lock */,
 				F0C13CA824CF17E10050FDCB /* Sources */,
 				F0C13CA924CF17E10050FDCB /* Frameworks */,
 				F0C13CAA24CF17E10050FDCB /* Resources */,
@@ -603,7 +603,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4EEC055B0591D5558C90D3D7 /* [CP] Check Pods Manifest.lock */ = {
+		0CD5A9BCE4900CA9DD4020D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -618,36 +618,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-nntu pre-alpha-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-nntu-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EA7BF512AC05AA3EF3C4A57 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WidgetLessonsExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9BB33E87CBEF6D6CF01CAA12 /* [CP] Check Pods Manifest.lock */ = {
+		6CE562D2DA3787A74C2F2C71 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -669,21 +647,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FAFA326B257BFD48ADE82572 /* [CP] Embed Pods Frameworks */ = {
+		8C9998E95ADB01DCC9253D6E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nntu pre-alpha/Pods-nntu pre-alpha-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-nntu/Pods-nntu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nntu pre-alpha/Pods-nntu pre-alpha-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-nntu/Pods-nntu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nntu pre-alpha/Pods-nntu pre-alpha-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nntu/Pods-nntu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2132D8870DDF0AB50024F93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WidgetLessonsExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -958,7 +958,7 @@
 		};
 		DF310F9623F8A30100540A6C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69677935D3F52EFD90EBCDE1 /* Pods-nntu pre-alpha.debug.xcconfig */;
+			baseConfigurationReference = 7613A50D7AAC4A31DFCA78CF /* Pods-nntu.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -984,7 +984,7 @@
 		};
 		DF310F9723F8A30100540A6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5ED93C7593C4D4DE8E6E1D3 /* Pods-nntu pre-alpha.release.xcconfig */;
+			baseConfigurationReference = F29A435A9290C620306CEC5F /* Pods-nntu.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1011,7 +1011,7 @@
 		};
 		F0B4252025C1747D00B6AF1B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F304ED9137EEC5F10576FF12 /* Pods-WidgetLessonsExtension.debug.xcconfig */;
+			baseConfigurationReference = 3507785053E422F71B6D32AC /* Pods-WidgetLessonsExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1039,7 +1039,7 @@
 		};
 		F0B4252125C1747D00B6AF1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 020DA2CB69F3A146FB13A405 /* Pods-WidgetLessonsExtension.release.xcconfig */;
+			baseConfigurationReference = 10692A6C7745955D937EAC79 /* Pods-WidgetLessonsExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -1067,7 +1067,7 @@
 		};
 		F0C13CB924CF17E10050FDCB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82DE41307E4CA488F211F23E /* Pods-widgetTimeTable.debug.xcconfig */;
+			baseConfigurationReference = 358599651BE15A91A913D938 /* Pods-widgetTimeTable.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = widgetTimeTable/widgetTimeTable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1093,7 +1093,7 @@
 		};
 		F0C13CBA24CF17E10050FDCB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21C170E44EDF9829AC8AE1CA /* Pods-widgetTimeTable.release.xcconfig */;
+			baseConfigurationReference = 9CFACBD420766B75D4503B77 /* Pods-widgetTimeTable.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = widgetTimeTable/widgetTimeTable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
