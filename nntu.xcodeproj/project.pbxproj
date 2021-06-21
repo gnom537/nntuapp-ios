@@ -35,6 +35,7 @@
 		DF55AB6A24190D78005AE6B4 /* NewMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55AB6924190D78005AE6B4 /* NewMarkViewController.swift */; };
 		DF6446A925E435ED00481B5B /* CalendarThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6446A825E435ED00481B5B /* CalendarThings.swift */; };
 		DF6E1C5024D7342C00E04AE8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF6E1C4E24D7342C00E04AE8 /* Localizable.strings */; };
+		DF712C69267FE9EC00B3CE12 /* nntuRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF712C68267FE9EC00B3CE12 /* nntuRooms.swift */; };
 		DF73FD162430EB01004E7699 /* nntu_pre_alpha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF73FD142430EB01004E7699 /* nntu_pre_alpha.xcdatamodeld */; };
 		DF7C554E25BE294700C9A016 /* LessonDataDBTTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7C554D25BE294700C9A016 /* LessonDataDBTTCell.swift */; };
 		DF7C555025BE297600C9A016 /* imageCellDBTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7C554F25BE297600C9A016 /* imageCellDBTT.swift */; };
@@ -70,7 +71,6 @@
 		F0A0FE5E25C182490064684B /* CoreDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0FE5D25C182490064684B /* CoreDataStructs.swift */; };
 		F0A0FE5F25C182490064684B /* CoreDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0FE5D25C182490064684B /* CoreDataStructs.swift */; };
 		F0A0FE6025C182F90064684B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0FE1B25C17A800064684B /* CoreDataStack.swift */; };
-		F0A4D69D24FAA54600B837DE /* README in Resources */ = {isa = PBXBuildFile; fileRef = F0A4D69C24FAA54600B837DE /* README */; };
 		F0B4251425C1747900B6AF1B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03F36E425C171A2004536EE /* WidgetKit.framework */; };
 		F0B4251525C1747900B6AF1B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03F36E625C171A2004536EE /* SwiftUI.framework */; };
 		F0B4251825C1747900B6AF1B /* WidgetLessons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B4251725C1747900B6AF1B /* WidgetLessons.swift */; };
@@ -163,6 +163,7 @@
 		DF6E1C5124D7343D00E04AE8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DF6E1C5224D7693F00E04AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DF6E1C5424D76B6E00E04AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		DF712C68267FE9EC00B3CE12 /* nntuRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nntuRooms.swift; sourceTree = "<group>"; };
 		DF73FD152430EB01004E7699 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		DF7C554D25BE294700C9A016 /* LessonDataDBTTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDataDBTTCell.swift; sourceTree = "<group>"; };
 		DF7C554F25BE297600C9A016 /* imageCellDBTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCellDBTT.swift; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		F084532C25CE00E700E79563 /* DateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFunctions.swift; sourceTree = "<group>"; };
 		F0A0FE1B25C17A800064684B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F0A0FE5D25C182490064684B /* CoreDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStructs.swift; sourceTree = "<group>"; };
-		F0A4D69C24FAA54600B837DE /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		F0AF39F124CDB03900C056DB /* НГТУ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "НГТУ.entitlements"; sourceTree = "<group>"; };
 		F0B4251325C1747900B6AF1B /* WidgetLessonsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetLessonsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B4251725C1747900B6AF1B /* WidgetLessons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLessons.swift; sourceTree = "<group>"; };
@@ -275,7 +275,6 @@
 			children = (
 				F01106F025C319FB006433CE /* WidgetLessonsExtension.entitlements */,
 				F03F371A25C17203004536EE /* WidgetExtension.entitlements */,
-				F0A4D69C24FAA54600B837DE /* README */,
 				DFE77D7F24112CBE00DF29DE /* PodFile */,
 				DF310F6B23F8A30000540A6C /* nntu */,
 				DF310F8423F8A30100540A6C /* nntuTests */,
@@ -309,6 +308,7 @@
 				DF546D06242EB4AE00B69D70 /* Caches.swift */,
 				DF3A1A8325BAE9B300777916 /* CoreDataFuncs.swift */,
 				DF6446A825E435ED00481B5B /* CalendarThings.swift */,
+				DF712C68267FE9EC00B3CE12 /* nntuRooms.swift */,
 				F0A0FE5C25C1822F0064684B /* Model */,
 				DF8E6D8124DB0A2600A5C7C0 /* NavigationGroup */,
 				DFE77D83241146EC00DF29DE /* MarkLine */,
@@ -576,7 +576,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0A4D69D24FAA54600B837DE /* README in Resources */,
 				DF6E1C5024D7342C00E04AE8 /* Localizable.strings in Resources */,
 				DF310F7B23F8A30100540A6C /* LaunchScreen.storyboard in Resources */,
 				DF310F7823F8A30100540A6C /* Assets.xcassets in Resources */,
@@ -732,6 +731,7 @@
 				DF39A56923FD613900CE350F /* DataStorage.swift in Sources */,
 				DF3A1A8425BAE9B400777916 /* CoreDataFuncs.swift in Sources */,
 				F0736D3725CE074D00033570 /* DateFunctions.swift in Sources */,
+				DF712C69267FE9EC00B3CE12 /* nntuRooms.swift in Sources */,
 				DF3A1A8625BB185200777916 /* CodeDBViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
