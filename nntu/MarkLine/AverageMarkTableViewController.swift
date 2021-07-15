@@ -16,22 +16,29 @@ func getAverage(marks: [Int]) -> Double {
     return sum/Double(marks.count)
 }
 
+
+
 class AverageMarkTableViewController: UITableViewController {
     
     var averageSems = [Float]()
     var diploma = [String: Int]()
     var averageOverall: Float = 0
     var diplomaKeys = [String]()
+    var isDataConsistent = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         diplomaKeys = Array(diploma.keys).sorted()
-
+        
+        if !isDataConsistent {
+            let alert = UIAlertController(title: "Семестры пропущены!", message: "Данных о некоторых семестрах в приложении нет, поэтому средний балл по некоторым дисциплинам может вычисляться неточно, или вообще отсутсвовать.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

@@ -23,7 +23,7 @@ class NewMarkViewController: UITableViewController {
     @IBOutlet var AverageMarkItem: UIBarButtonItem!
     
     
-    var tryData = AllData()
+    var allMarks = multipleSems()
 //
 //    var markArray: [Int] = []
 //    var semsForMarkArray: [Int] = []
@@ -31,7 +31,7 @@ class NewMarkViewController: UITableViewController {
     //MARK: - refresh()
     @objc func refresh(){
         updateMarkInfo(completion: { (theData, html) in
-            self.tryData = theData
+            self.allMarks = theData
             self.updateSemesters()
             self.tableView.reloadData()
 //            print(html)
@@ -62,14 +62,14 @@ class NewMarkViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AverageMarkItem.isEnabled = false
-        updateSemesters()
+//        updateSemesters()
 //        if (tryData.Sems.count == 0){
 //            self.title = NSLocalizedString("Загрузка...", comment: "")
 //        }
         
         //MARK: updateMarkInfo call
         updateMarkInfo(completion: { (theData, html) in
-            self.tryData = theData
+            self.allMarks = theData
             self.updateSemesters()
             self.tableView.reloadData()
             //print (self.tryData)
@@ -119,6 +119,7 @@ class NewMarkViewController: UITableViewController {
 //        viewDidLoad()
 //    }
     
+    //MARK: semestrChanged
     @IBAction func SemestrChanged(_ sender: Any) {
         let generator = UISelectionFeedbackGenerator()
         generator.selectionChanged()
@@ -126,6 +127,7 @@ class NewMarkViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    //MARK: prevSem
     @objc func prevSem(_ sender: UISwipeGestureRecognizer){
         if (SemestrSegment.selectedSegmentIndex > 0){
             let generator = UISelectionFeedbackGenerator()
@@ -136,6 +138,7 @@ class NewMarkViewController: UITableViewController {
         }
     }
     
+    //MARK: nextSem
     @objc func nextSem(_ sender: UISwipeGestureRecognizer){
         if (SemestrSegment.selectedSegmentIndex < SemestrSegment.numberOfSegments - 1){
             let generator = UISelectionFeedbackGenerator()
@@ -146,41 +149,38 @@ class NewMarkViewController: UITableViewController {
         }
     }
     
+    //MARK: updateSemesters
     func updateSemesters(){
-        if (tryData.Sems.count == 0){
+        if (allMarks.Sems.count == 0){
             SemestrSegment.isHidden = true
             FalseSegment.isHidden = false
-        } else if (tryData.Sems.count > SemestrSegment.numberOfSegments){
-            for i in SemestrSegment.numberOfSegments + 1...self.tryData.Sems.count {
-                SemestrSegment.insertSegment(withTitle: String(i), at: SemestrSegment.numberOfSegments, animated: false)
-                UserDefaults.standard.set(self.tryData.Sems.count, forKey: "countOfSemesters")
-            }
-            UIView.animate(withDuration: 0.1, animations: {
-                self.FalseSegment.isHidden = true
-                self.SemestrSegment.isHidden = false
-            })
-        } else if (tryData.Sems.count > SemestrSegment.numberOfSegments){
-            while (SemestrSegment.numberOfSegments > self.tryData.Sems.count){
-                SemestrSegment.removeSegment(at: SemestrSegment.numberOfSegments - 1, animated:true)
-            }
+        }
+        
+        SemestrSegment.removeAllSegments()
+        
+        for sem in allMarks.Sems {
+            let title = String(sem.number)
+            SemestrSegment.insertSegment(withTitle: title, at: SemestrSegment.numberOfSegments, animated: false)
+        }
+        
+        if (SemestrSegment.numberOfSegments > 0){
             UIView.animate(withDuration: 0.1, animations: {
                 self.FalseSegment.isHidden = true
                 self.SemestrSegment.isHidden = false
             })
         }
-        if (tryData.Sems.count != 0){
-            for i in 0...self.tryData.Sems.count - 1{
+        
+        if (allMarks.Sems.count != 0){
+            for i in 0..<self.allMarks.Sems.count{
                 var emptySemester = true
-                
-                
                 //вводим эту переменную, чтобы решить баг в случае пустых семестров
                 //emptySemester - есть ли оценки в этом семестре
-                let howManyDisciplines = self.tryData.Sems[i].Semestr.count
+                let howManyDisciplines = self.allMarks.Sems[i].Semestr.count
                 if (howManyDisciplines == 0){
                     emptySemester = false
                 } else {
-                    for j in 0...howManyDisciplines - 1{
-                        let subject = self.tryData.Sems[i].Semestr[j]
+                    for j in 0..<howManyDisciplines{
+                        let subject = self.allMarks.Sems[i].Semestr[j]
                         let emptySubject = !(subject.FirstKn != nil || subject.SecondKn != nil || subject.Result != nil)
                         emptySemester = emptySubject && emptySemester
                     }
@@ -192,13 +192,15 @@ class NewMarkViewController: UITableViewController {
                 if (emptySemester == true){
                     var prevSemIsReallyEmpty = false
                     if (i != 0) {
-                        prevSemIsReallyEmpty = self.tryData.Sems[i-1].Semestr.count == 0
+                        prevSemIsReallyEmpty = self.allMarks.Sems[i-1].Semestr.count == 0
                         if (prevSemIsReallyEmpty){
                             self.SemestrSegment.selectedSegmentIndex = i
                         } else {self.SemestrSegment.selectedSegmentIndex = i - 1}
+                    } else {
+                        self.SemestrSegment.selectedSegmentIndex = 0
                     }
                     break
-                } else if (i == self.tryData.Sems.count - 1){
+                } else if (i == self.allMarks.Sems.count - 1){
                     self.SemestrSegment.selectedSegmentIndex = i
                 }
             }
@@ -207,11 +209,6 @@ class NewMarkViewController: UITableViewController {
     
 
     // MARK: - Table view data source
-
-    
-    
-    
-    //MARK: numberOfSections
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -220,22 +217,22 @@ class NewMarkViewController: UITableViewController {
     
     //MARK: numberOfRowsInection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (SemestrSegment.selectedSegmentIndex > tryData.Sems.count - 1){
+        if (allMarks.Sems.count == 0){
             return 1
         } else {
-            return tryData.Sems[self.SemestrSegment.selectedSegmentIndex].Semestr.count
+            return allMarks.Sems[self.SemestrSegment.selectedSegmentIndex].Semestr.count
         }
     }
 
     //MARK: cellForRow
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (SemestrSegment.selectedSegmentIndex > tryData.Sems.count - 1){
+        if (SemestrSegment.selectedSegmentIndex > allMarks.Sems.count - 1){
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? loadingCell else {
                 fatalError()
             }
             return cell
-        } else if (indexPath.row > tryData.Sems[SemestrSegment.selectedSegmentIndex].Semestr.count - 1) {
+        } else if (indexPath.row > allMarks.Sems[SemestrSegment.selectedSegmentIndex].Semestr.count - 1) {
             return UITableViewCell()
         }
         
@@ -243,7 +240,7 @@ class NewMarkViewController: UITableViewController {
             fatalError()
         }
         
-        let cellData = tryData.Sems[self.SemestrSegment.selectedSegmentIndex].Semestr[indexPath.row]
+        let cellData = allMarks.Sems[self.SemestrSegment.selectedSegmentIndex].Semestr[indexPath.row]
         
         cell.FirstKn = cellData.FirstKn
         cell.SecondKn = cellData.SecondKn
@@ -276,42 +273,25 @@ class NewMarkViewController: UITableViewController {
     
     //MARK: titleForHeaderInSection
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (tryData.Sems.count != 1){
+        if (allMarks.Sems.count != 1){
             return String(SemestrSegment.selectedSegmentIndex + 1) + " " + NSLocalizedString("семестр", comment: "")
         } else {return NSLocalizedString("Ошибка", comment: "")}
     }
     
     
+    
+    //MARK: - Средний балл
     //считаем средний балл ура
     func fillTheArrays(){
-        if (tryData.Sems.count > 0){
+        if (allMarks.Sems.count > 0){
             AverageMarkItem.isEnabled = true
         } else {
             AverageMarkItem.isEnabled = false
         }
-//        markArray = []
-//        semsForMarkArray = []
-//        var i = 0
-//        var sum: Double = 0
-//
-//        for sem in tryData.Sems {
-//            i += 1
-//            for mark in sem.Semestr {
-//                let intResult = Int(mark.Result ?? "") ?? 0
-//                if (intResult > 0){
-//                    sum += Double(intResult)
-//                    markArray.append(intResult)
-//                    semsForMarkArray.append(i)
-//                }
-//            }
-//        }
-//        if (sum > 0){
-//            AverageMarkItem.isEnabled = true
-//            AverageMarkItem.title = String(Float(sum/Double(markArray.count)).rounded(toPlaces: 2))
-//        }
     }
     
-    func makeADiploma(_ marks: AllData) -> [String: Int]?{
+    //MARK: makeADiploma
+    func makeADiploma(_ marks: multipleSems) -> [String: Int]?{
         var howManyInSemester = [Int]()
         var subjectNames = [String]()
         var subjectMarks = [Float]()
@@ -346,6 +326,8 @@ class NewMarkViewController: UITableViewController {
         return output
     }
     
+    
+    //MARK: getAverageOverall
     func getAverageOverall(_ diploma: [String: Int]) -> Float{
         var howmany = 0
         var sum: Float = 0
@@ -356,7 +338,8 @@ class NewMarkViewController: UITableViewController {
         return round((sum/Float(howmany))*100)/100
     }
     
-    func averagePerSem(_ marks: AllData) -> [Float] {
+    //MARK: averagePerSem
+    func averagePerSem(_ marks: multipleSems) -> [Float] {
         var i = 0
 //        var output = [Int: Float]()
         var output = [Float]()
@@ -418,14 +401,22 @@ class NewMarkViewController: UITableViewController {
         return true
     }
     */
-
+    
+    //MARK: checkMarksConsistency
+    func checkMarksConsistency(_ data: multipleSems) -> Bool {
+        var prevSemNumber = 0
+        var prevSemHasMarks = true
+        for sem in data.Sems {
+            if (prevSemNumber + 1 != sem.number) {return false}
+            if !prevSemHasMarks && (sem.hasMarks()) {return false}
+            
+            prevSemNumber = sem.number
+            prevSemHasMarks = sem.hasMarks()
+        }
+        return true
+    }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
- 
-    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "GoToSingleMark"){
             let cell = sender as! MarkCell
@@ -433,9 +424,10 @@ class NewMarkViewController: UITableViewController {
             goToVC.inputCell = cell
         } else if (segue.identifier == "AverageMark"){
             let goToVC = segue.destination as! AverageMarkTableViewController
-            goToVC.diploma = makeADiploma(tryData) ?? [String: Int]()
-            goToVC.averageSems = averagePerSem(tryData)
+            goToVC.diploma = makeADiploma(allMarks) ?? [String: Int]()
+            goToVC.averageSems = averagePerSem(allMarks)
             goToVC.averageOverall = getAverageOverall(goToVC.diploma)
+            goToVC.isDataConsistent = checkMarksConsistency(allMarks)
         }
                  // Get the new view controller using segue.destination.
          // Pass the selected object to the new view controller.
