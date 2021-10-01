@@ -32,14 +32,14 @@ class ArticleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         theArticle.href = theArticleFromSegue.href
-        safelyGetHtmlFromHref(input: theArticle, completition: ({ loaded in
-            self.theArticle = loaded
-            self.theArticleFromSegue.Article = loaded.text
-            if (loaded.text == "" || loaded.text == nil) {
-                self.theArticleFromSegue.Article = "Не удалось загрузить новость"
-            }
-            self.tableView.reloadData()
-        }))
+//        safelyGetHtmlFromHref(input: theArticle, completition: ({ loaded in
+//            self.theArticle = loaded
+//            self.theArticleFromSegue.Article = loaded.text
+//            if (loaded.text == "" || loaded.text == nil) {
+//                self.theArticleFromSegue.Article = "Не удалось загрузить новость"
+//            }
+//            self.tableView.reloadData()
+//        }))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

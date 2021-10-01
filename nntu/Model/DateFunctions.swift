@@ -9,12 +9,28 @@
 import Foundation
 import UIKit
 
+//данные для переносов недель
+
+//startWeek: неделя календаря, соответствующая начальной в расписании
+//0, если начинается с чётной
+//1. если с нечётной
+//используется как в расписании в приложении, так и в виджетах
+let startWeek = 35
+
+//иногда первая неделя четная, поэтому мы её будем считать нулевой
+//если первая неделя нечетная, additionalWeek = 1
+//если первая неделя четная, additionalWeek = 0
+let additionalWeek = 1
+
+//Дата окончания событий в календаре - getEndDate в CalendarThings
+
+
 // MARK:- Date functions
 
 func getCurrentWeek(date: Date = Date()) -> Int {
     var userCalendar = Calendar.current
     userCalendar.locale = Locale(identifier: "ru_UA")
-    let weekOfYear = userCalendar.component(.weekOfYear, from: date) - 5
+    let weekOfYear = userCalendar.component(.weekOfYear, from: date) - startWeek + additionalWeek
     return weekOfYear
 }
 

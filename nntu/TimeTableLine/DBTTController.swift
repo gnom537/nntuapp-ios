@@ -9,6 +9,7 @@
 import UIKit
 import WidgetKit
 
+
 class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
@@ -79,6 +80,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         super.viewDidAppear(true)
         areAllActive = UserDefaults.standard.bool(forKey: "areAllActive")
         self.tableView.reloadData()
+        updateBadge(self)
     }
     
     
@@ -108,7 +110,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         if (dateForTT == nil) {return}
         var userCalendar = Calendar.current
         userCalendar.locale = Locale(identifier: "ru_UA")
-        var newNowWeek = userCalendar.component(.weekOfYear, from: dateForTT!) - 5
+        var newNowWeek = userCalendar.component(.weekOfYear, from: dateForTT!) - startWeek + additionalWeek
         newNowWeek -= 1
         nowWeek = newNowWeek
         if (nowWeek == weekAtTheMoment){
@@ -368,7 +370,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         let moment = Date()
         var userCalendar = Calendar.current
         userCalendar.locale = Locale(identifier: "ru_UA")
-        var week = userCalendar.component(.weekOfYear, from: moment) - 5
+        var week = userCalendar.component(.weekOfYear, from: moment) - startWeek + additionalWeek
 //        let day = userCalendar.component(.weekday, from: moment)
         week -= 1
         weekAtTheMoment = week

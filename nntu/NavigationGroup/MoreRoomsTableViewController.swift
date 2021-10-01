@@ -39,14 +39,13 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
 //    var everyBuilding = [building]()
     
     var controllerData = [[String: String]]()
-    var everyBuilding = [[String: String]]()
 //    var keys = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        everyBuilding = [firstBuilding, secondBuilding, thirdBuilding, fourthBuilding, fifthBuilding, sixthBuilding]
-        everyBuilding = [building1, building2, building3, building4, building5, building6]
+        
         let parentController = ControllerToUpdate as! NavigationViewController
         BuildingSegment.selectedSegmentIndex = parentController.choosingBuilding.selectedSegmentIndex
         
@@ -59,6 +58,7 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
         SearchTextField.delegate = self
         
         reloadDataWithSegment()
+//        checkRooms()
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -66,21 +66,25 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
 
     // MARK: - Table view data source
 
+    //MARK: numberOfSections
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return controllerData.count
     }
 
+    //MARK: numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return controllerData[section].count
     }
     
+    //MARK: titleForHeaderInSection
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(controllerData[section][controllerData[section].keys.first!]!.first!) корпус"
     }
 
     
+    //MARK:  cellForRow
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "roomCell", for: indexPath) as? RoomCell else {
             fatalError()
@@ -90,6 +94,7 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
         return cell
     }
     
+    //MARK:  didSelectRowAt
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         PreLoadedRoom = self.controllerData[indexPath.section][Array(controllerData[indexPath.section].keys)[indexPath.row]]
         ControllerToUpdate?.viewDidAppear(true)
@@ -97,16 +102,18 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
         })
     }
     
+    //MARK: reloadDataWithSegment
     func reloadDataWithSegment(){
         controllerData = [everyBuilding[BuildingSegment.selectedSegmentIndex]]
-//        keys = Array(controllerData.keys).sorted()
         self.tableView.reloadData()
     }
     
+    //MARK: SegmentChanged
     @IBAction func SegmentChanged(_ sender: Any) {
         reloadDataWithSegment()
     }
     
+    //MARK: SearchStarted
     @IBAction func SearchStarted(_ sender: Any) {
         UIView.animate(withDuration: 0.25, animations: {
             self.BuildingStack.isHidden = true
@@ -116,10 +123,14 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
         })
     }
     
+    
+    //MARK: TapHappened
     @IBAction func TapHappened(_ sender: Any) {
         SearchTextField.endEditing(true)
     }
     
+    
+    //MARK: SearchEnded
     @IBAction func SearchEnded(_ sender: Any) {
         UIView.animate(withDuration: 0.15, animations: {
             self.BuildingStack.isHidden = false
@@ -129,12 +140,16 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
         })
     }
     
+    
+    //MARK: textFieldShouldReturn
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         SearchTextField.endEditing(true)
         return false
     }
     
     
+    
+    //MARK: SearchWhileTyping
     @IBAction func SearchWhileTyping(_ sender: Any) {
         controllerData = [everyBuilding[BuildingSegment.selectedSegmentIndex]]
         if (SearchTextField.text != "" && SearchTextField.text != nil){
@@ -146,7 +161,7 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
     
     
 
-    
+    //MARK: - search()
     func search(data: [[String: String]], searchWord: String) -> [[String: String]] {
         var output = [[String: String]]()
         for building in data {
@@ -162,6 +177,17 @@ class MoreRoomsTableViewController: UITableViewController, UITextFieldDelegate {
         }
         return output
     }
+    
+    
+//    func checkRooms(){
+//        for building in everyBuilding {
+//            for key in building.keys {
+//                if (UIImage(named: building[key]!) == nil){
+//                    print(key)
+//                }
+//            }
+//        }
+//    }
     
     
     //    func search(_ input: building, _ searchWord: String) -> building{

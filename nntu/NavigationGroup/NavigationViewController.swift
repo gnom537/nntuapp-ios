@@ -8,32 +8,30 @@
 
 import UIKit
 
-/*
- //MARK: rotateImage
- extension UIImage {
-     func rotate(radians: Float) -> UIImage? {
-         var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
-         // Trim off the extremely small float value to prevent core graphics from rounding it up
-         newSize.width = floor(newSize.width)
-         newSize.height = floor(newSize.height)
+extension UIImage {
+    func rotate(radians: CGFloat) -> UIImage? {
+        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: radians)).size
+        // Trim off the extremely small float value to prevent core graphics from rounding it up
+        newSize.width = floor(newSize.width)
+        newSize.height = floor(newSize.height)
 
-         UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
-         let context = UIGraphicsGetCurrentContext()!
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
 
-         // Move origin to middle
-         context.translateBy(x: newSize.width/2, y: newSize.height/2)
-         // Rotate around middle
-         context.rotate(by: CGFloat(radians))
-         // Draw the image at its center
-         self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+        // Move origin to middle
+        context.translateBy(x: newSize.width/2, y: newSize.height/2)
+        // Rotate around middle
+        context.rotate(by: radians)
+        // Draw the image at its center
+        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
 
-         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-         UIGraphicsEndImageContext()
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
 
-         return newImage
-     }
- }
- */
+        return newImage
+    }
+}
+
 
 
 
@@ -54,6 +52,8 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var moreButtonsView : UIView!
     
     @IBOutlet var topConstraint: NSLayoutConstraint!
+    
+    let cgPI: CGFloat = .pi
     
     var preloadedRoom = String()
     var rotated = false
@@ -101,6 +101,8 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
             topConstraint.constant = 20
             findbutton()
         }
+        
+//        scroll.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(rotateGesture(_:))))
         /*
          let screen: CGRect = self.view.bounds
          if (screen.height >= 768){
@@ -254,8 +256,13 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
                 if (requestedBuilding == buildingsegment){
                     switch buildingsegment {
                     case 1:
-                        if (nowsegment < requestedSegment){
+                        let weirdBlock = [1280, 1281, 1361, 1362]
+                        if nowsegment < requestedSegment && weirdBlock.contains(input){
+                            TheImage.image = UIImage(named: "\(nowsegment)level up weird \(buildingsegment)")
+                        } else if (nowsegment < requestedSegment){
                             TheImage.image = UIImage(named: "\(nowsegment)level up \(buildingsegment)")
+                        } else if input == 1161 && nowsegment == 2 {
+                            TheImage.image = UIImage(named: "2level down 1")
                         } else {
                             showemptyfloors()
                         }
@@ -384,10 +391,28 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
             findbutton()
             ControllerToUpdate = nil
         }
+        updateBadge(self)
     }
     
     @IBAction func moreButton(){
         ControllerToUpdate = self
+    }
+    
+    @IBAction func rotateButton(_ sender: UIButton) {
+        let image = self.TheImage.image
+        UIView.animate(withDuration: 0.25, animations: {
+            self.TheImage.image = image!.rotate(radians: self.cgPI/2)
+//            self.TheImage.transform = self.TheImage.transform.rotated(by: self.cgPI/2)
+        })
+    }
+    
+    @objc func rotateGesture(_ sender: UIRotationGestureRecognizer){
+//        let image = self.TheImage.image
+        if sender.state == .began || sender.state == .changed {
+//            self.TheImage.image = image!.rotate(radians: sender.rotation)
+            TheImage.transform = TheImage.transform.rotated(by: sender.rotation)
+            sender.rotation = 0
+        }
     }
     
     

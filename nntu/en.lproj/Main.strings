@@ -27,7 +27,7 @@
 "304-ZU-Bmc.text" = "18-САИ-1";
 
 /* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "3C2-tt-4ox"; */
-"3C2-tt-4ox.title" = "Account";
+"3C2-tt-4ox.title" = "More";
 
 /* Class = "UITextField"; placeholder = "15:25"; ObjectID = "48v-HA-rJ1"; */
 "48v-HA-rJ1.placeholder" = "15:25";
@@ -102,7 +102,7 @@
 "Ei3-l9-10j.title" = "Timetable editor";
 
 /* Class = "UINavigationItem"; title = "Новости"; ObjectID = "F6h-GV-kak"; */
-"F6h-GV-kak.title" = "News";
+"F6h-GV-kak.title" = "Events";
 
 /* Class = "UILabel"; text = "3"; ObjectID = "FX9-HY-aET"; */
 "FX9-HY-aET.text" = "3";
@@ -162,7 +162,7 @@
 "Q4k-2x-Xwj.placeholder" = "Patronymic";
 
 /* Class = "UITabBarItem"; title = "Новости"; ObjectID = "QAg-kL-QGu"; */
-"QAg-kL-QGu.title" = "News";
+"QAg-kL-QGu.title" = "Events";
 
 /* Class = "UILabel"; text = "183294"; ObjectID = "QH0-U6-CTs"; */
 "QH0-U6-CTs.text" = "183294";
@@ -300,7 +300,7 @@
 "ivW-JE-dzi.normalTitle" = "Email: nntuapp@inbox.ru";
 
 /* Class = "UITabBarItem"; title = "Новости"; ObjectID = "jPr-Jr-U6M"; */
-"jPr-Jr-U6M.title" = "News";
+"jPr-Jr-U6M.title" = "Events";
 
 /* Class = "UILabel"; text = "5"; ObjectID = "kMd-Ch-HrV"; */
 "kMd-Ch-HrV.text" = "5";

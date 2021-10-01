@@ -43,7 +43,7 @@ class NewMarkViewController: UITableViewController {
                 self.present(popup, animated: true)
                 let genator = UINotificationFeedbackGenerator()
                 genator.notificationOccurred(.error)
-            } else if (html == ""){
+            } else if (self.allMarks.Sems.count == 0){
                 let ok = UIAlertAction(title: NSLocalizedString("Понятно", comment: ""), style: .default)
                 let popup = UIAlertController(title: "Произошла ошибка при загрузке", message: "Проверьте подключение к интернету", preferredStyle: .alert)
                 popup.addAction(ok)
@@ -83,7 +83,7 @@ class NewMarkViewController: UITableViewController {
                 self.present(popup, animated: true)
                 let genator = UINotificationFeedbackGenerator()
                 genator.notificationOccurred(.error)
-            } else if (html == ""){
+            } else if (self.allMarks.Sems.count == 0){
                 let ok = UIAlertAction(title: NSLocalizedString("Понятно", comment: ""), style: .default)
                 let popup = UIAlertController(title: "Произошла ошибка при загрузке", message: "Проверьте подключение к интернету", preferredStyle: .alert)
                 popup.addAction(ok)
@@ -115,9 +115,9 @@ class NewMarkViewController: UITableViewController {
         self.tableView.addGestureRecognizer(prevSwipe)
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        viewDidLoad()
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        updateBadge(self)
+    }
     
     //MARK: semestrChanged
     @IBAction func SemestrChanged(_ sender: Any) {
@@ -154,6 +154,7 @@ class NewMarkViewController: UITableViewController {
         if (allMarks.Sems.count == 0){
             SemestrSegment.isHidden = true
             FalseSegment.isHidden = false
+            
         }
         
         SemestrSegment.removeAllSegments()
@@ -227,7 +228,7 @@ class NewMarkViewController: UITableViewController {
     //MARK: cellForRow
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (SemestrSegment.selectedSegmentIndex > allMarks.Sems.count - 1){
+        if (SemestrSegment.selectedSegmentIndex > allMarks.Sems.count - 1) || (allMarks.Sems.count == 0){
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? loadingCell else {
                 fatalError()
             }
@@ -432,11 +433,4 @@ class NewMarkViewController: UITableViewController {
                  // Get the new view controller using segue.destination.
          // Pass the selected object to the new view controller.
      }
-     
-    
-    
-    
-    
-    
-
 }

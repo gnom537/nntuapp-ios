@@ -17,12 +17,25 @@ extension String {
     }
 }
 
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+}
+
 class AccountViewController: UIViewController, UITextFieldDelegate {
     
     var tempEntered = false
     
     
     //MARK: - IBOutlets
+    @IBOutlet var accountView: UIView!
+    @IBOutlet var moreStack: UIStackView!
+    
+    
     //TextFields
     @IBOutlet var InputStack: UIStackView!
     @IBOutlet var SecondName: UITextField!
@@ -32,9 +45,15 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var Group: UITextField!
 
     @IBOutlet var ErrorLabel: UILabel!
-    @IBOutlet var EnterButton: UIButton!
-    @IBOutlet var EditButton: UIButton!
-    @IBOutlet var ChangeTimeTableButton: UIButton!
+    
+    // кнопки
+    @IBOutlet var EnterButton: UIView!
+    @IBOutlet var EditButton: UIView!
+    @IBOutlet var EnterButtonTitle: UILabel!
+    @IBOutlet var EnterButtonIcon: UILabel!
+    
+    
+//    @IBOutlet var goToSettingsButton: UIButton!
     
     //это мы будем прятать и обратно доставать
     @IBOutlet var OutputStack: UIStackView!
@@ -49,15 +68,13 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var GroupLabel: UILabel!
     
     //для наведения красоты
-    @IBOutlet var Margin: NSLayoutConstraint!
-    @IBOutlet var MarginLeading: NSLayoutConstraint!
+//    @IBOutlet var Margin: NSLayoutConstraint!
+//    @IBOutlet var MarginLeading: NSLayoutConstraint!
     
     //для того, чтобы скрывать текст у преподов
     @IBOutlet var NStudStack: UIStackView!
     @IBOutlet var UselessGroupLabel: UILabel!
     
-    
-    var size : CGFloat = 17
     
     let data = UserDefaults.standard
  
@@ -75,22 +92,20 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         
         EnterButton.layer.cornerRadius = 7
         EditButton.layer.cornerRadius = 7
-        ChangeTimeTableButton.layer.cornerRadius = 7
+        
+        moreStack.clipsToBounds = true
+        moreStack.layer.cornerRadius = 20
+        accountView.layer.cornerRadius = 20
+        accountView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        
         Entered = data.bool(forKey: "Entered")
         tempEntered = Entered
-        
-        let width = UIScreen.main.bounds.width - 30
-        if (width <= 345){
-            Margin.constant = 15
-            MarginLeading.constant = 15
-        } else {
-            Margin.constant = 20
-            MarginLeading.constant = 20
-        }
         
         //TabBar = self.tabBarController?.viewControllers
         if (Entered == false){
             OutputStack.isHidden = true
+            InputStack.isHidden = false
             FirstName.isHidden = false
             SecondName.isHidden = false
             Otchestvo.isHidden = false
@@ -98,6 +113,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             Group.isHidden = false
             EditButton.isHidden = true
             ErrorLabel.isHidden = true
+            
+            EnterButtonTitle.text = NSLocalizedString("Войти", comment: "")
+            EnterButtonTitle.textColor = .systemBlue
+            EnterButtonIcon.text = "✅"
 //            if (self.tabBarController?.viewControllers?.count == 5 || self.tabBarController?.viewControllers?.count == 4){
 //                self.tabBarController?.viewControllers?.remove(at: 1)
 //                if (self.tabBarController?.viewControllers?.count == 4){
@@ -112,27 +131,30 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
 //                self.tabBarController?.viewControllers?.remove(at: 2)
 //            }
             
-            ChangeTimeTableButton.isHidden = true
+//            goToSettingsButton.isHidden = true
         }
         
         
         else{
-            size = 17
-            updateNames()
+//            updateNames()
             //isHidden
             OutputStack.isHidden = false
-            FirstName.isHidden = true
-            SecondName.isHidden = true
-            Otchestvo.isHidden = true
-            Nstud.isHidden = true
-            Group.isHidden = true
+            InputStack.isHidden = true
+//            FirstName.isHidden = true
+//            SecondName.isHidden = true
+//            Otchestvo.isHidden = true
+//            Nstud.isHidden = true
+//            Group.isHidden = true
             ErrorLabel.isHidden = true
-            ChangeTimeTableButton.isHidden = false
+//            goToSettingsButton.isHidden = false
             EditButton.isHidden = false
             
             //заполнение Output Stack
-            EnterButton.setTitle(NSLocalizedString("Выйти", comment: ""), for: .normal)
-            EnterButton.setTitleColor(UIColor.red, for: .normal)
+//            EnterButton.setTitle(NSLocalizedString("Выйти", comment: ""), for: .normal)
+//            EnterButton.setTitleColor(UIColor.red, for: .normal)
+            EnterButtonTitle.text = "Выйти"
+            EnterButtonTitle.textColor = .systemRed
+            EnterButtonIcon.text = "❌"
             
             //Достаем данные и после этого наведем красоту
             NameLabel.text = data.string(forKey: "FirstName") ?? "null"
@@ -141,36 +163,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             NumLabel.text = data.string(forKey: "Nstud")
             GroupLabel.text = data.string(forKey: "Group")
             
-            //Находим самое длинное слово для того, чтобы потом по нему масштабировать текст под ширину стека
-            let maxLength = [NameLabel.text?.count ?? 0, SecondNameLabel.text?.count ?? 0, OtchLabel.text?.count ?? 0].max()!
-            
-            
-            //по самому длинному слову определяем ширину стека
-            var textWidth : CGFloat = 0
-            if (OtchLabel.text?.count ?? 0 == maxLength){
-                textWidth = OtchLabel.intrinsicContentSize.width
-            } else if (NameLabel.text?.count ?? 0 == maxLength){
-                textWidth = NameLabel.intrinsicContentSize.width
-            } else {
-                textWidth = SecondNameLabel.intrinsicContentSize.width
-            }
-            
-            size = 17
-            while (textWidth < width - 80 && size < 83){
-                size = size + 1
-                updateNames()
-                if (OtchLabel.text?.count ?? 0 == maxLength){
-                    textWidth = OtchLabel.intrinsicContentSize.width
-                } else if (NameLabel.text?.count ?? 0 == maxLength){
-                    textWidth = NameLabel.intrinsicContentSize.width
-                } else {
-                    textWidth = SecondNameLabel.intrinsicContentSize.width
-                }
-            }
-            
-//            NameLabel.text = "\(data.string(forKey: "SecondName") as? String ?? "null") \(data.string(forKey: "FirstName") as? String ?? "null") \(data.string(forKey: "Otchestvo") as? String ?? "null")"
-//            NumLabel.text = "номер студенческого билета: \(data.string(forKey: "Nstud") as? String ?? "null")"
-//            GroupLabel.text = "группа:  \(data.string(forKey: "Group")as? String ?? "null")"
             self.tabBarController?.viewControllers = TabBar
             if (data.string(forKey: "Nstud") == ""){
                 self.tabBarController?.viewControllers?.remove(at: 1)
@@ -184,6 +176,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     
     //MARK: disableKeyboard()
     func disableKeyboard(){
@@ -345,8 +338,9 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         }
         else {
             func leave(){
-                EnterButton.setTitle(NSLocalizedString("Войти", comment: ""), for: .normal)
-                EnterButton.setTitleColor(.systemBlue, for: .normal)
+                EnterButtonTitle.text = NSLocalizedString("Войти", comment: "")
+                EnterButtonTitle.textColor = .systemBlue
+                EnterButtonIcon.text = "✅"
                 data.set("", forKey: "SecondName")
                 data.set("", forKey: "FirstName")
                 data.set("", forKey: "Otchestvo")
@@ -388,17 +382,12 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         prevNstud = (Nstud.text ?? "").count
     }
     
-    //MARK: - updateNames
-    func updateNames(){
-        NameLabel.font = NameLabel.font.withSize(size)
-        SecondNameLabel.font = SecondNameLabel.font.withSize(size)
-        OtchLabel.font = OtchLabel.font.withSize(size)
-    }
     
     //MARK: - editUserData()
     @IBAction func editUserData(_ sender: UIButton) {
-        EnterButton.setTitle(NSLocalizedString("Войти", comment: ""), for: .normal)
-        EnterButton.setTitleColor(.systemBlue, for: .normal)
+        EnterButtonTitle.text = NSLocalizedString("Войти", comment: "")
+        EnterButtonTitle.textColor = .systemBlue
+        EnterButtonIcon.text = "✅"
         SecondName.text = SecondNameLabel.text
         FirstName.text = NameLabel.text
         Otchestvo.text = OtchLabel.text

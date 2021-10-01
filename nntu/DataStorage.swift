@@ -73,6 +73,10 @@ struct Sem {
         }
         return false
     }
+    
+    func isEmpty() -> Bool {
+        return Semestr.isEmpty
+    }
 }
 
 struct multipleSems {
@@ -102,7 +106,7 @@ class TimeTable {
 
 
 //MARK: - getInfoFromNet()
-func getInfoFromNet (completion: @escaping (String?)->(Void)){
+func loadOldArticles (completion: @escaping (String?)->(Void)){
     var WhatToReturn : String? = ""
     AF.request("https://www.nntu.ru/news/all/vse-novosti").responseString{ response in
         switch response.result{
@@ -110,14 +114,14 @@ func getInfoFromNet (completion: @escaping (String?)->(Void)){
             //print (response.value!)
             WhatToReturn = response.value
         case .failure(_):
-            print("Ничего не сработало")
+            print("Старые статьи не были загружены")
         }; completion(WhatToReturn)
     }
 }
 
 
 //MARK: - scrape()
-func scrape (html : String?) -> Array<article>{
+func scrapeOldArticles (html : String?) -> Array<article>{
         var preview, zag, href, text, hqimage: String?
         var webcontent: String = html ?? "  "
         var news = [article]()
@@ -191,7 +195,6 @@ data-content="">
             //hqimage = findHQImage(html: hrefContent)
             news.append(article(preview: preview, zag: zag, href: href, text: text, hqimage: hqimage))
         }
-        
         return news
     }
 
@@ -271,21 +274,19 @@ text-align: justify;">
 
 
 //MARK: - safelyGetHtmlFromHref()
-func safelyGetHtmlFromHref (input: article, completition: @escaping (article)->(Void)){
-    var outputArticle = input
-    let href = input.href ?? ""
-    do {
-        AF.request(try href.asURL()).responseString { response in
-            switch response.result{
-            case .success(_):
-                outputArticle.text = findTheArticle(html: response.value)
-                outputArticle.hqimage = findHQImage(html: response.value)
-            case .failure(_):
-                print("не получилось загрузить новости")
-            }; completition(outputArticle)
-        }
-    } catch {
-        print ("Оно не сработало")
+func safelyGetArticle (url: URL, completition: @escaping (String)->(Void)){
+    AF.request(url).responseString { response in
+        switch response.result{
+        case .success(_):
+            DispatchQueue.main.async {
+                completition(findTheArticle(html: response.value) ?? "")
+            }
+        case .failure(_):
+            print("не получилось загрузить новости")
+            DispatchQueue.main.async {
+                completition("")
+            }
+        };
     }
     
 }
@@ -339,26 +340,24 @@ text-center mark_exists">
 //            sems.append(String(webcontent.prefix(upTo: stopsymbol)))
 //            webcontent = String(webcontent.suffix(from: stopsymbol))
 //        }
-        while (webcontent.contains(semestr) == true){
-            if let semrange = webcontent.range(of: semestr){
-                var numberSymbol = webcontent.index(semrange.lowerBound, offsetBy: -1)
-                
-                while (Int(webcontent[numberSymbol...numberSymbol]) != nil) {
-                    numberSymbol = webcontent.index(numberSymbol, offsetBy: -1)
-                }
-                numberSymbol = webcontent.index(numberSymbol, offsetBy: 1)
-                
-                let numberRange = numberSymbol..<semrange.lowerBound
-                semNumbers.append(Int(webcontent[numberRange]) ?? 0)
-                
-                sems.append(String(webcontent[...semrange.upperBound]))
-                webcontent = String(webcontent[semrange.upperBound...])
+        if let semrange = webcontent.range(of: semestr){
+            var numberSymbol = webcontent.index(semrange.lowerBound, offsetBy: -1)
+            
+            while (Int(webcontent[numberSymbol...numberSymbol]) != nil) {
+                numberSymbol = webcontent.index(numberSymbol, offsetBy: -1)
             }
+            numberSymbol = webcontent.index(numberSymbol, offsetBy: 1)
+            
+            let numberRange = numberSymbol..<semrange.lowerBound
+            semNumbers.append(Int(webcontent[numberRange]) ?? 0)
+            
+            sems.append(String(webcontent[...semrange.upperBound]))
+            webcontent = String(webcontent[semrange.upperBound...])
         }
     }
     sems.append(webcontent)
     sems.remove(at: 0)
-    for i in 0...sems.count-1 {
+    for i in 0..<sems.count {
         var semContent = sems[i]
         var prevSemContent = semContent
         while (prevSemContent.contains(nameStartWord)){
@@ -471,7 +470,9 @@ text-center mark_exists">
             }
         }
         tempSem.number = semNumbers[i]
-        TheData.Sems.append(tempSem)
+        if !tempSem.isEmpty() {
+            TheData.Sems.append(tempSem)
+        }
         tempSem = Sem()
     }
     return TheData

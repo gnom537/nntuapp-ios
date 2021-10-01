@@ -21,7 +21,7 @@
 "2v4-Lq-rJF.placeholder" = "Группа";
 
 /* Class = "UITabBarItem"; title = "Настройки"; ObjectID = "3C2-tt-4ox"; */
-"3C2-tt-4ox.title" = "Аккаунт";
+"3C2-tt-4ox.title" = "Ещё";
 
 /* Class = "UITextField"; placeholder = "Фамилия"; ObjectID = "6aR-Ho-Fth"; */
 "6aR-Ho-Fth.placeholder" = "Фамилия";
@@ -75,7 +75,7 @@
 "ENl-DX-FGF.text" = "Господин Калашников объелся бигудей и стал автоматом";
 
 /* Class = "UINavigationItem"; title = "Новости"; ObjectID = "F6h-GV-kak"; */
-"F6h-GV-kak.title" = "Новости";
+"F6h-GV-kak.title" = "События";
 
 /* Class = "UILabel"; text = "5"; ObjectID = "F9w-CT-a7D"; */
 "F9w-CT-a7D.text" = "5";
@@ -108,7 +108,7 @@
 "Q4k-2x-Xwj.placeholder" = "Отчество";
 
 /* Class = "UITabBarItem"; title = "Новости"; ObjectID = "QAg-kL-QGu"; */
-"QAg-kL-QGu.title" = "Новости";
+"QAg-kL-QGu.title" = "События";
 
 /* Class = "UITabBarItem"; title = "Расписание"; ObjectID = "QzM-6N-jf8"; */
 "QzM-6N-jf8.title" = "Расписание";
@@ -222,7 +222,7 @@
 "ir6-Y3-b33.placeholder" = "9:35";
 
 /* Class = "UITabBarItem"; title = "Новости"; ObjectID = "jPr-Jr-U6M"; */
-"jPr-Jr-U6M.title" = "Новости";
+"jPr-Jr-U6M.title" = "События";
 
 /* Class = "UITextField"; placeholder = "Введите код"; ObjectID = "kXy-Rq-0AC"; */
 "kXy-Rq-0AC.placeholder" = "Введите код";

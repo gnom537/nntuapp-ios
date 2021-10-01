@@ -73,7 +73,7 @@ func getCalendar() -> EKCalendar {
 func getEndDate() -> Date {
     var dateComponents = DateComponents()
     dateComponents.year = 2021
-    dateComponents.month = 5
+    dateComponents.month = 12
     dateComponents.day = 31
     dateComponents.hour = 23
     dateComponents.minute = 59
@@ -85,11 +85,16 @@ func getEndDate() -> Date {
 func getStartTime(_ lesson: Lesson, _ isEveryWeek: Bool, _ week: Int) -> Date{
     var dateCompontens = DateComponents()
     dateCompontens.year = 2021
-    if isEveryWeek || lesson.weeks.contains(-2){
-        dateCompontens.weekOfYear = 5 + 1
+    if lesson.name == "Элективные курсы по физ-ре 🏃‍♂️" {
+        print("im here")
+    }
+    if isEveryWeek {
+        dateCompontens.weekOfYear = startWeek + 1
+    } else if lesson.weeks.contains(-2){
+        dateCompontens.weekOfYear = startWeek + additionalWeek + 1
     } else if lesson.weeks.contains(-1){
-        dateCompontens.weekOfYear = 6 + 1
-    } else {dateCompontens.weekOfYear = week + 5 + 1}
+        dateCompontens.weekOfYear = startWeek + 1 + 1 - additionalWeek
+    } else {dateCompontens.weekOfYear = week + startWeek + 1 - additionalWeek}
     
     var tempDay = lesson.day + 1
     if (tempDay == 7) {tempDay = 1}

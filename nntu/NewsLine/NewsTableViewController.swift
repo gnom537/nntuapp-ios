@@ -8,27 +8,11 @@
 
 import UIKit
 
-//MARK: - extension
-extension UIImageView {
-   func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-      URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-   }
-   func downloadImage(from url: URL) {
-      getData(from: url) {
-         data, response, error in
-         guard let data = data, error == nil else {
-            return
-         }
-         DispatchQueue.main.async() {
-            self.image = UIImage(data: data)
-         }
-      }
-   }
-}
+
 
 class NewsTableViewController: UITableViewController {
     @objc func refresh(){
-        getInfoFromNet(completion: { WhatToReturn in
+        loadOldArticles(completion: { WhatToReturn in
             if WhatToReturn == "" {
                 self.title = NSLocalizedString("Ошибка", comment: "")
                 let genator = UINotificationFeedbackGenerator()
@@ -38,7 +22,7 @@ class NewsTableViewController: UITableViewController {
                 self.title = NSLocalizedString("Новости", comment: "")
             }
             self.toConvert = WhatToReturn
-            self.theData = scrape(html: self.toConvert)
+            self.theData = scrapeOldArticles(html: self.toConvert)
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         })
@@ -54,15 +38,17 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.title = "Загрузка..."
-        
-        getInfoFromNet(completion: { WhatToReturn in
+//        loadEvents({ events in
+//            print(events.count)
+//        })
+        loadOldArticles(completion: { WhatToReturn in
             if WhatToReturn == "" {
                 self.title = NSLocalizedString("Ошибка", comment: "")
             } else {
                 self.title = NSLocalizedString("Новости", comment: "")
             }
             self.toConvert = WhatToReturn
-            self.theData = scrape(html: self.toConvert)
+            self.theData = scrapeOldArticles(html: self.toConvert)
             //print (theData)
 //            if self.theData.count != 0 {
 //                for i in 0...self.theData.count - 1 {
@@ -123,8 +109,8 @@ class NewsTableViewController: UITableViewController {
         cell.NewsImage.image = UIImage(named: "logoPlaceholder")
         if (tempArticle.preview != nil && tempArticle.Preview == nil){
             tempArticle.Preview = UIImageView()
-            tempArticle.Preview?.downloadImage(from: URL(string: tempArticle.preview!)!)
-            cell.NewsImage.downloadImage(from: URL(string: tempArticle.preview!)!)
+//            tempArticle.Preview?.downloadImage(from: URL(string: tempArticle.preview!)!)
+//            cell.NewsImage.downloadImage(from: URL(string: tempArticle.preview!)!)
             //cell.NewsImage.downloadImage(from: URL(string: tempArticle.preview!)!)
         }
         if (tempArticle.hqimage != nil && tempArticle.HQimage == nil){
