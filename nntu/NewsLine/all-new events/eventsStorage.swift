@@ -274,7 +274,13 @@ func updateBadge(_ vc: UIViewController){
     updateLastID { badgeValue in
         if let items = vc.tabBarController?.tabBar.items {
             let eventsTab = items[0]
-            eventsTab.badgeValue = String(badgeValue)
+            if 1...9 ~= badgeValue {
+                eventsTab.badgeValue = String(badgeValue)
+            } else if badgeValue > 9{
+                eventsTab.badgeValue = "9+"
+            } else {
+                eventsTab.badgeValue = nil
+            }
         }
     }
 }

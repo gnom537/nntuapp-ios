@@ -23,7 +23,14 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
     
     
     var nowWeek = 0
-    var weekAtTheMoment = 0
+    var weekAtTheMoment : Int {
+        get {
+            let moment = Date()
+            var userCalendar = Calendar.current
+            userCalendar.locale = Locale(identifier: "ru_UA")
+            return userCalendar.component(.weekOfYear, from: moment) - startWeek + additionalWeek - 1
+        }
+    }
     var actualRow = -1
     var actualSection = -1
     
@@ -323,20 +330,26 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         }
     }
     
-//    @IBAction func showEverythingButton(_ sender: UIBarButtonItem) {
-//        if (areAllActive) {
-//            areAllActive = false
-//            sender.image = UIImage(systemName: "tablecells.badge.ellipsis")
-//        } else {
-//            areAllActive = true
-//            sender.image = UIImage(systemName: "tablecells.badge.ellipsis.fill")
-//        }
-//        let generator = UIImpactFeedbackGenerator(style: .medium)
-//        generator.impactOccurred()
-//        UserDefaults.standard.set(areAllActive, forKey: "areAllActive")
-//        self.tableView.reloadData()
-//    }
+    func setWeekText(_ week: Int){
+        var attributes = [NSAttributedString.Key : Any]()
+        if week == weekAtTheMoment {
+            attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 17, weight: .semibold)
+            let color: UIColor = week % 2 == 0 ? .blue : .red
+            attributes[NSAttributedString.Key.foregroundColor] = color
+            setButtonsColor(color)
+        } else {
+            attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 17, weight: .regular)
+            attributes[NSAttributedString.Key.foregroundColor] = UIColor.label
+            setButtonsColor(UIColor.link)
+        }
+        
+        DayLabel.attributedText = NSMutableAttributedString.init(string: "\(week) неделя", attributes: attributes)
+    }
     
+    func setButtonsColor(_ color: UIColor){
+        prevDayButton.tintColor = color
+        nextDayButton.tintColor = color
+    }
     
     
     func updatePlate(){
@@ -345,46 +358,27 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         } else {
             prevDayButton.isEnabled = true
         }
-        let weekString = "\(nowWeek) неделя"
-//        let colorfulS = NSMutableAttributedString(string: weekString)
-        isBlue = nowWeek % 2 == 0
-        DayLabel.text = weekString
-//        if (isBlue){
-//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUblue)
-//        } else {
-//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUred)
-//        }
-//        DayLabel.attributedText = colorfulS
         
         arrangedTT = getArrangedDataForWeek(tt: allLessons, week: nowWeek)
-        if (nowWeek == weekAtTheMoment){
+        
+        isBlue = nowWeek % 2 == 0
+        
+        if nowWeek == weekAtTheMoment {
             getActualLesson()
         } else {
             actualSection = -1
             actualRow = -1
         }
+        
+        setWeekText(nowWeek)
+        
         tableView.reloadData()
     }
     
     func loadLabel(){
-        let moment = Date()
-        var userCalendar = Calendar.current
-        userCalendar.locale = Locale(identifier: "ru_UA")
-        var week = userCalendar.component(.weekOfYear, from: moment) - startWeek + additionalWeek
-//        let day = userCalendar.component(.weekday, from: moment)
-        week -= 1
-        weekAtTheMoment = week
         nowWeek = weekAtTheMoment
-        let weekString = "\(week) неделя"
-//        let colorfulS = NSMutableAttributedString(string: weekString)
-        isBlue = week % 2 == 0
-        DayLabel.text = weekString
-//        if (isBlue){
-//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUblue)
-//        } else {
-//            colorfulS.setColorForText(textForAttribute: weekString, withColor: NNTUred)
-//        }
-//        DayLabel.attributedText = colorfulS
+        setWeekText(nowWeek)
+        isBlue = nowWeek % 2 == 0
         getActualLesson()
     }
     
@@ -440,6 +434,20 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
     //        return nowWeek
     //    }
     //
+    
+    //    @IBAction func showEverythingButton(_ sender: UIBarButtonItem) {
+    //        if (areAllActive) {
+    //            areAllActive = false
+    //            sender.image = UIImage(systemName: "tablecells.badge.ellipsis")
+    //        } else {
+    //            areAllActive = true
+    //            sender.image = UIImage(systemName: "tablecells.badge.ellipsis.fill")
+    //        }
+    //        let generator = UIImpactFeedbackGenerator(style: .medium)
+    //        generator.impactOccurred()
+    //        UserDefaults.standard.set(areAllActive, forKey: "areAllActive")
+    //        self.tableView.reloadData()
+    //    }
     
     
     /*
