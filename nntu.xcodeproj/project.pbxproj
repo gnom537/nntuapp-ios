@@ -1052,7 +1052,7 @@
 				CODE_SIGN_ENTITLEMENTS = "nntu/НГТУ.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = nntu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1078,7 +1078,7 @@
 				CODE_SIGN_ENTITLEMENTS = "nntu/НГТУ.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = nntu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1106,7 +1106,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetLessonsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = WidgetLessons/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -1134,7 +1134,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetLessonsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = WidgetLessons/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -1159,7 +1159,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetTimeTable/widgetTimeTable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = widgetTimeTable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1185,7 +1185,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetTimeTable/widgetTimeTable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = widgetTimeTable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

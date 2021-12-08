@@ -49,7 +49,7 @@ struct Dis {
         self.FirstKn = FirstKn
         self.PropFirstKn = PropFirstKn
         self.SecondKn = SecondKn
-        self.PropSecondKn = SecondKn
+        self.PropSecondKn = PropSecondKn
         self.ResType = ResType ?? ""
         self.Result = Result
         
