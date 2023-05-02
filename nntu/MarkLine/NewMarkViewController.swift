@@ -31,10 +31,10 @@ class NewMarkViewController: UITableViewController {
     //MARK: - refresh()
     @objc func refresh(){
         updateMarkInfo(completion: { (theData, html) in
+          assert(Thread.isMainThread)
             self.allMarks = theData
             self.updateSemesters()
             self.tableView.reloadData()
-//            print(html)
             
             if (html.contains("не найден")){
                 let ok = UIAlertAction(title: NSLocalizedString("Понятно", comment: ""), style: .default)

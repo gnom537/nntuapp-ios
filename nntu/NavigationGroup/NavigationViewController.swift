@@ -73,27 +73,8 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
         //showemptyfloors()
         TheImage.image = UIImage(named: "1level non-active 6")
         
-        
-        Entered = UserDefaults.standard.bool(forKey: "Entered")
-        let Nstud = UserDefaults.standard.string(forKey: "Nstud")
-        
         moreButtonsView.clipsToBounds = true
         moreButtonsView.layer.cornerRadius = 20
-        if (preloadedRoom == ""){
-            TabBar = self.tabBarController?.viewControllers
-        }
-        
-        if (Entered == false){
-            if (preloadedRoom == ""){
-                self.tabBarController?.viewControllers?.remove(at: 1)
-            }
-//            self.tabBarController?.viewControllers?.remove(at: 2)
-        } else {
-            self.tabBarController?.viewControllers = TabBar
-            if (Nstud == ""){
-                self.tabBarController?.viewControllers?.remove(at: 1)
-            }
-        }
         
         
         if preloadedRoom != "" {
@@ -352,7 +333,6 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func BuildingSegmentChanged(_ sender: Any) {
-        
         let generator = UISelectionFeedbackGenerator()
         generator.selectionChanged()
         buildingFloorLogic()
@@ -407,9 +387,7 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func rotateGesture(_ sender: UIRotationGestureRecognizer){
-//        let image = self.TheImage.image
         if sender.state == .began || sender.state == .changed {
-//            self.TheImage.image = image!.rotate(radians: sender.rotation)
             TheImage.transform = TheImage.transform.rotated(by: sender.rotation)
             sender.rotation = 0
         }

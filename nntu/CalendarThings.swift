@@ -6,7 +6,6 @@
 //  Copyright © 2021 Алексей Шерстнев. All rights reserved.
 //
 
-import Foundation
 import EventKit
 import UIKit
 
@@ -28,9 +27,6 @@ func removeTTfromCalendar(id: String){
         if (store.calendar(withIdentifier: id) != nil){
             try store.removeCalendar(store.calendar(withIdentifier: id)!, commit: true)
         }
-//        if let id = UserDefaults.standard.string(forKey: "calendarID"){
-//
-//        }
     } catch {
         print ("Can't delete calendar 😭")
     }
@@ -70,24 +66,11 @@ func getCalendar() -> EKCalendar {
  на самом деле рассуждать в комментах наверное даже клас
  */
 
-func getEndDate() -> Date {
-    var dateComponents = DateComponents()
-    dateComponents.year = 2021
-    dateComponents.month = 12
-    dateComponents.day = 31
-    dateComponents.hour = 23
-    dateComponents.minute = 59
-    
-    let userCalendar = Calendar(identifier: .gregorian)
-    return userCalendar.date(from: dateComponents) ?? Date()
-}
 
 func getStartTime(_ lesson: Lesson, _ isEveryWeek: Bool, _ week: Int) -> Date{
     var dateCompontens = DateComponents()
-    dateCompontens.year = 2021
-    if lesson.name == "Элективные курсы по физ-ре 🏃‍♂️" {
-        print("im here")
-    }
+    dateCompontens.year = nowYear
+    
     if isEveryWeek {
         dateCompontens.weekOfYear = startWeek + 1
     } else if lesson.weeks.contains(-2){
@@ -102,7 +85,7 @@ func getStartTime(_ lesson: Lesson, _ isEveryWeek: Bool, _ week: Int) -> Date{
     
     dateCompontens.weekday = tempDay
     dateCompontens.timeZone = TimeZone(secondsFromGMT: 3600*3)
-    var str = lesson.startTime
+    let str = lesson.startTime
     
     
     let index = lesson.startTime.firstIndex(of: ":")

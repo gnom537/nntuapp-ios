@@ -99,11 +99,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         accountView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
         
-        Entered = data.bool(forKey: "Entered")
-        tempEntered = Entered
+        entered = data.bool(forKey: "Entered")
+        tempEntered = entered
         
-        //TabBar = self.tabBarController?.viewControllers
-        if (Entered == false){
+        if (entered == false){
             OutputStack.isHidden = true
             InputStack.isHidden = false
             FirstName.isHidden = false
@@ -117,21 +116,9 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             EnterButtonTitle.text = NSLocalizedString("Войти", comment: "")
             EnterButtonTitle.textColor = .systemBlue
             EnterButtonIcon.text = "✅"
-//            if (self.tabBarController?.viewControllers?.count == 5 || self.tabBarController?.viewControllers?.count == 4){
-//                self.tabBarController?.viewControllers?.remove(at: 1)
-//                if (self.tabBarController?.viewControllers?.count == 4){
-//                    self.tabBarController?.viewControllers?.remove(at: 1)
-//                }
-//            }
-            if (self.tabBarController?.viewControllers?.count == 5){
-                self.tabBarController?.viewControllers?.remove(at: 1)
-//                self.tabBarController?.viewControllers?.remove(at: 2)
-            }
-//            else if (self.tabBarController?.viewControllers?.count == 4) {
-//                self.tabBarController?.viewControllers?.remove(at: 2)
-//            }
             
-//            goToSettingsButton.isHidden = true
+            let tabConfig = TabBarConfig.notAuthorized
+            self.tabBarController?.apply(tabConfig, vcs: tabBarVCs)
         }
         
         
@@ -140,18 +127,8 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             //isHidden
             OutputStack.isHidden = false
             InputStack.isHidden = true
-//            FirstName.isHidden = true
-//            SecondName.isHidden = true
-//            Otchestvo.isHidden = true
-//            Nstud.isHidden = true
-//            Group.isHidden = true
             ErrorLabel.isHidden = true
-//            goToSettingsButton.isHidden = false
             EditButton.isHidden = false
-            
-            //заполнение Output Stack
-//            EnterButton.setTitle(NSLocalizedString("Выйти", comment: ""), for: .normal)
-//            EnterButton.setTitleColor(UIColor.red, for: .normal)
             EnterButtonTitle.text = "Выйти"
             EnterButtonTitle.textColor = .systemRed
             EnterButtonIcon.text = "❌"
@@ -163,9 +140,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
             NumLabel.text = data.string(forKey: "Nstud")
             GroupLabel.text = data.string(forKey: "Group")
             
-            self.tabBarController?.viewControllers = TabBar
             if (data.string(forKey: "Nstud") == ""){
-                self.tabBarController?.viewControllers?.remove(at: 1)
                 NStudStack.isHidden = true
                 GroupLabel.isHidden = true
                 UselessGroupLabel.text = NSLocalizedString("Преподаватель", comment: "")
@@ -174,6 +149,9 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
                 GroupLabel.isHidden = false
                 UselessGroupLabel.text = NSLocalizedString("Группа:", comment: "")
             }
+            
+            let tabConfig = TabBarConfig.from(entered: entered, nstud: data.string(forKey: "Nstud"))
+            self.tabBarController?.apply(tabConfig, vcs: tabBarVCs)
         }
     }
     

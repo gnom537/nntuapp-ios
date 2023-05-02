@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(identifier: "MainTabBarController") as? UITabBarController
                     
-                    vc?.selectedIndex = 3
+                    vc?.selectedIndex = 2
                     
                     window.rootViewController = vc
                     self.window = window
@@ -51,7 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(identifier: "MainTabBarController") as? UITabBarController
                     
-                    vc?.selectedIndex = 3
+                    vc?.selectedIndex = 2
                     
                     let selectedView = vc?.selectedViewController as? UINavigationController
                     let pushStoryboard = UIStoryboard(name: "Main", bundle: nil)

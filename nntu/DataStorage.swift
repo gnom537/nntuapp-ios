@@ -6,20 +6,24 @@
 //  Copyright © 2020 Алексей Шерстнёв. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 import SwiftSoup
 
+let marksURL: URL = URL(string: "https://www.nntu.ru/frontend/web/student_info.php")!
+
+// used in AF request
+let newsURL: URL = URL(string: "https://www.nntu.ru/news/all/vse-novosti")!
+
 var Globaldata : TimeTable? = TimeTable()
 
-var TabBar: [UIViewController]?
-var Entered = false
+var tabBarVCs: [UIViewController]?
+var entered = false
 
 
 var PreLoadedRoom: String? = nil
 var ControllerToUpdate : UIViewController? = nil
 
-//let BUNDLEGROUP = "group.nntu.WidgetShare"
 let BUNDLEGROUP = "group.nntu.share"
 
 
@@ -107,16 +111,25 @@ class TimeTable {
 
 //MARK: - getInfoFromNet()
 func loadOldArticles (completion: @escaping (String?)->(Void)){
-    var WhatToReturn : String? = ""
-    AF.request("https://www.nntu.ru/news/all/vse-novosti").responseString{ response in
-        switch response.result{
-        case .success( _):
-            //print (response.value!)
-            WhatToReturn = response.value
-        case .failure(_):
-            print("Старые статьи не были загружены")
-        }; completion(WhatToReturn)
+  var request = URLRequest(url: newsURL)
+  request.method = .get
+  request.setValue("keep-alive", forHTTPHeaderField: "Connection")
+  request.setValue("Mozilla/5.0 (Windows NT 10.0; Win64; x64)", forHTTPHeaderField: "User-Agent")
+
+  URLSession.shared.dataTask(with: request) { data, response, error in
+    guard let data = data, error == nil else {
+      print("Старые статьи не были загиружены")
+      DispatchQueue.main.async {
+        completion(nil)
+      }
+    return
     }
+
+    let html = String(data: data, encoding: .utf8) ?? ""
+    DispatchQueue.main.async {
+      completion(html)
+    }
+  }.resume()
 }
 
 
@@ -181,18 +194,6 @@ data-content="">
             zag = zag ?? "null"
             preview = "https://www.nntu.ru" + preview!
             href = "https://www.nntu.ru" + href!
-            /*
-             print ("\n\n\n\n")
-             print (preview!)
-             print (zag!)
-             print (href!)
-             print (text!)
-             print (hqimage!)
-             print ("\n\n\n\n")
-             */
-            //let hrefContent = explicitlyGetHtmlFromHref(href: href)
-            //text = findTheArticle(html: hrefContent)
-            //hqimage = findHQImage(html: hrefContent)
             news.append(article(preview: preview, zag: zag, href: href, text: text, hqimage: hqimage))
         }
         return news
@@ -275,19 +276,25 @@ text-align: justify;">
 
 //MARK: - safelyGetHtmlFromHref()
 func safelyGetArticle (url: URL, completition: @escaping (String)->(Void)){
-    AF.request(url).responseString { response in
-        switch response.result{
-        case .success(_):
-            DispatchQueue.main.async {
-                completition(findTheArticle(html: response.value) ?? "")
-            }
-        case .failure(_):
-            print("не получилось загрузить новости")
-            DispatchQueue.main.async {
-                completition("")
-            }
-        };
+  var request = URLRequest(url: url)
+  request.method = .get
+  request.setValue("keep-alive", forHTTPHeaderField: "Connection")
+  request.setValue("Mozilla/5.0 (Windows NT 10.0; Win64; x64)", forHTTPHeaderField: "User-Agent")
+
+  URLSession.shared.dataTask(with: request) { data, response, error in
+    guard let data = data, error == nil else {
+      print("не удалось загрузить новость")
+      DispatchQueue.main.async {
+        completition("")
+      }
+    return
     }
+
+    let html = String(data: data, encoding: .utf8) ?? ""
+    DispatchQueue.main.async {
+      completition(findTheArticle(html: html) ?? "")
+    }
+  }.resume()
     
 }
 
@@ -331,15 +338,6 @@ text-center mark_exists">
     
     let semestr = " семестр"
     while (webcontent.contains(semestr) == true){
-//        if let semrange = webcontent.range(of: semestr){
-//            var numberSymbol = webcontent.index(semrange.upperBound, offsetBy: -1)
-//
-//
-//            var stopsymbol = semrange.lowerBound
-//            stopsymbol = webcontent.index(stopsymbol, offsetBy: 1)
-//            sems.append(String(webcontent.prefix(upTo: stopsymbol)))
-//            webcontent = String(webcontent.suffix(from: stopsymbol))
-//        }
         if let semrange = webcontent.range(of: semestr){
             var numberSymbol = webcontent.index(semrange.lowerBound, offsetBy: -1)
             
@@ -493,45 +491,37 @@ func tempData() -> multipleSems{
 }
 
 //MARK: - updateMarkInfo()
-func updateMarkInfo(completion: @escaping (multipleSems, String) -> (Void)) {
-    let data = UserDefaults.standard
-    var html : String? = ""
-    var theData = multipleSems()
-    
-    let parameters: [String: String] = [
-        "last_name" : data.string(forKey: "SecondName") ?? "",
-        "first_name" : data.string(forKey: "FirstName") ?? "",
-        "otc" : data.string(forKey: "Otchestvo") ?? "",
-        "n_zach" : data.string(forKey: "Nstud") ?? "",
-        "learn_type" : data.string(forKey: "UserType") ?? ""
-    ]
-    
-    
-    AF.request("https://www.nntu.ru/frontend/web/student_info.php", method: .post, parameters: parameters).validate().responseString { response in
-                switch response.result {
-                case .success(_):
-                    html = response.value
-//                    print (html)
-                        if (html != "﻿Студент не найден."){
-                            theData = getMarks(html: html!)
-                             //self.data.set(theData, forKey: "AllData")
-                            
-                            
-                            //print (theData)
-                            
-                        } else {
-                            print ("Он ничего не нашёл")
-                            print (parameters)
-                            completion(theData, html ?? "Студент не найден.")
-                            return
-                    }
-                        
-                        //let whatever = self.getMarks(html: html!)
-                        //print(whatever)
-                case .failure(let error):
-                    print(error)
-        }; completion(theData, html ?? "")
+func updateMarkInfo(completion: @escaping (multipleSems, String) -> Void) {
+  let data = UserDefaults.standard
+  let lastName = data.string(forKey: "SecondName") ?? ""
+  let firstName = data.string(forKey: "FirstName") ?? ""
+  let otc = data.string(forKey: "Otchestvo") ?? ""
+  let nZach = data.string(forKey: "Nstud") ?? ""
+  let learnType = data.string(forKey: "UserType") ?? ""
+
+  var request = URLRequest(url: marksURL)
+  request.method = .post
+  request.setValue("https://www.nntu.ru/content/studentam/uspevaemost", forHTTPHeaderField: "Referer")
+  request.setValue("gzip, deflate, br", forHTTPHeaderField: "Accept-Encoding")
+  request.setValue("application/x-www-form-urlencoded; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+  request.setValue("keep-alive", forHTTPHeaderField: "Connection")
+  request.setValue("en-GB,en;q=0.9", forHTTPHeaderField: "Accept-Language")
+  request.setValue("*/*", forHTTPHeaderField: "Accept")
+
+  let httpBody = "last_name=\(lastName)&first_name=\(firstName)&otc=\(otc)&n_zach=\(nZach)&learn_type=\(learnType)"
+  request.httpBody = httpBody.data(using: .utf8)
+  URLSession.shared.dataTask(with: request) { data, response, error in
+    guard let data = data, error == nil else {
+      DispatchQueue.main.async {
+        completion(multipleSems(), "")
+      }
+      return
     }
+    let html = String(data: data, encoding: .utf8) ?? ""
+    DispatchQueue.main.async {
+      completion(getMarks(html: html), html)
+    }
+  }.resume()
 }
 
 //MARK: - Colors
@@ -566,4 +556,50 @@ func GetNowWeek () -> Int {
 }
 
 
+//MARK: - TabBarConfigs
+// это нужно для более понятного определения TabBar и его конфигураций в зависимости от пользователя
+enum Tab: Int {
+    case events = 0
+    case marks = 1
+    case timetable
+    case tasks
+    case more
+}
 
+enum TabBarConfig {
+    case student
+    case teacher
+    case notAuthorized
+}
+
+extension TabBarConfig {
+    var rawValue: [Int] {
+        tabs.map { $0.rawValue }
+    }
+    
+    var tabs: [Tab] {
+        switch self {
+        case .student:
+            return [.events, .marks, .timetable, .tasks, .more]
+        case .teacher:
+            return [.events, .timetable, .more]
+        case .notAuthorized:
+            return [.events, .timetable, .more]
+        }
+    }
+    
+    static func from(entered: Bool, nstud: String?) -> TabBarConfig {
+        guard entered else {return .notAuthorized}
+        guard let nstud = nstud, !nstud.isEmpty else { return .teacher }
+        return .student
+    }
+}
+
+extension UITabBarController {
+    func apply(_ config: TabBarConfig, vcs: [UIViewController]?){
+        guard let vcs = vcs else { return }
+        let indexes = config.rawValue
+        let newTabs = indexes.map { vcs[$0] }
+        viewControllers = newTabs
+    }
+}

@@ -95,3 +95,5 @@
 "Удалить" = "Delete";
 "Оставить" = "Retain";
 
+"Задачи название" = "How do tasks work?";
+"Задачи описание" = "You can create and remove tasks for everyone in your group, also you can mark tasks completion locally.";

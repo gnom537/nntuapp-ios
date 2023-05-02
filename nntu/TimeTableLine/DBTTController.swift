@@ -12,6 +12,14 @@ import WidgetKit
 
 class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
     
+    func configureTabs(){
+        entered = UserDefaults.standard.bool(forKey: "Entered")
+        let nstud = UserDefaults.standard.string(forKey: "Nstud")
+        tabBarVCs = self.tabBarController?.viewControllers
+        let config = TabBarConfig.from(entered: entered, nstud: nstud)
+        self.tabBarController?.apply(config, vcs: tabBarVCs)
+    }
+    
     @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
     @IBOutlet var prevDayButton: UIButton!
     @IBOutlet var nextDayButton: UIButton!
@@ -44,6 +52,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        configureTabs()
         allLessons = CoreDataStack.shared.fetchLessons()
         if (checkAutoUpdate() == true || allLessons.count == 0){
             onlineTT()

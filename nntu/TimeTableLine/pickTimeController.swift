@@ -21,7 +21,6 @@ class pickTimeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let radius: CGFloat = 5
-//        picker.date = picker.date.advanced(by: Double(dayDifference*86400))
         picker.date = Date()
         plusWeek.layer.cornerRadius = radius
         minusWeek.layer.cornerRadius = radius

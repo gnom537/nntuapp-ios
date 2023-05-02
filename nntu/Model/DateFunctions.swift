@@ -12,18 +12,33 @@ import UIKit
 //данные для переносов недель
 
 //startWeek: неделя календаря, соответствующая начальной в расписании
-//0, если начинается с чётной
-//1. если с нечётной
 //используется как в расписании в приложении, так и в виджетах
-let startWeek = 35
+let startWeek = 5
 
 //иногда первая неделя четная, поэтому мы её будем считать нулевой
 //если первая неделя нечетная, additionalWeek = 1
 //если первая неделя четная, additionalWeek = 0
-let additionalWeek = 1
+let additionalWeek = 0
 
-//Дата окончания событий в календаре - getEndDate в CalendarThings
+//используется при переносе расписания в календарь
+let nowYear: Int = {
+    let now = Date()
+    let calendar = Calendar.current
+    return calendar.component(.year, from: now)
+}()
 
+//Дата окончания событий в календаре - getEndDate
+func getEndDate() -> Date {
+    var dateComponents = DateComponents()
+    dateComponents.year = nowYear
+    dateComponents.month = 5
+    dateComponents.day = 31
+    dateComponents.hour = 23
+    dateComponents.minute = 59
+    
+    let userCalendar = Calendar(identifier: .gregorian)
+    return userCalendar.date(from: dateComponents) ?? Date()
+}
 
 // MARK:- Date functions
 

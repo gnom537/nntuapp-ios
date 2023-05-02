@@ -30,7 +30,6 @@
 		DF3A1A8625BB185200777916 /* CodeDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A1A8525BB185200777916 /* CodeDBViewController.swift */; };
 		DF3C7C64241954BE006CC3A6 /* SingleMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C7C63241954BE006CC3A6 /* SingleMarkViewController.swift */; };
 		DF546D07242EB4AE00B69D70 /* Caches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF546D06242EB4AE00B69D70 /* Caches.swift */; };
-		DF546D0A242EC8B800B69D70 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF546D09242EC8B800B69D70 /* TimeTableViewController.swift */; };
 		DF546D0C242EC8DC00B69D70 /* TimeTableDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF546D0B242EC8DC00B69D70 /* TimeTableDayCell.swift */; };
 		DF55AB6A24190D78005AE6B4 /* NewMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55AB6924190D78005AE6B4 /* NewMarkViewController.swift */; };
 		DF5C841826BAD9A2004355EA /* eventsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5C841726BAD9A2004355EA /* eventsStorage.swift */; };
@@ -54,11 +53,23 @@
 		DF98E3EF26BE049A0093F8B7 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98E3EE26BE049A0093F8B7 /* EventTableViewCell.swift */; };
 		DF98E3F126BEEF630093F8B7 /* SingleEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98E3F026BEEF630093F8B7 /* SingleEventViewController.swift */; };
 		DF98E3F326BEF7E60093F8B7 /* eventDataCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98E3F226BEF7E60093F8B7 /* eventDataCells.swift */; };
+		DF998DB327EF92B100E63056 /* TaskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF998DB227EF92B100E63056 /* TaskStorage.swift */; };
+		DF998DB527EFEC4B00E63056 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF998DB427EFEC4B00E63056 /* Checkmark.swift */; };
 		DFA0955F25F7FFC5007894A0 /* AverageMarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA0955E25F7FFC5007894A0 /* AverageMarkTableViewController.swift */; };
 		DFA0956425F80F81007894A0 /* AverageMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA0956325F80F81007894A0 /* AverageMarkCell.swift */; };
+		DFA2624428182DAB00DCF4C8 /* NothingFoundStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA2624328182DAB00DCF4C8 /* NothingFoundStack.swift */; };
 		DFB3D4BD25BB79F100C5DF5A /* DBTTController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB3D4BC25BB79F100C5DF5A /* DBTTController.swift */; };
 		DFB3D4BF25BB850400C5DF5A /* activeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB3D4BE25BB850400C5DF5A /* activeTVCell.swift */; };
 		DFB3D4C125BB856800C5DF5A /* passiveTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB3D4C025BB856800C5DF5A /* passiveTVCell.swift */; };
+		DFD4D4D627F24DA600756D96 /* SingleTaskEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4D4D527F24DA600756D96 /* SingleTaskEditor.swift */; };
+		DFD4D4D827F25FEC00756D96 /* SubjectSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4D4D727F25FEC00756D96 /* SubjectSuggestionCell.swift */; };
+		DFD4D4DA27F365A700756D96 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4D4D927F365A700756D96 /* AlertFactory.swift */; };
+		DFD4D4DC27F4A80500756D96 /* SingleTaskViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4D4DB27F4A80500756D96 /* SingleTaskViewer.swift */; };
+		DFE3B52827EE3EE700F23955 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE3B52727EE3EE700F23955 /* TaskListController.swift */; };
+		DFE3B52A27EE410F00F23955 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE3B52927EE410E00F23955 /* TaskCell.swift */; };
+		DFE3B52C27EE41D100F23955 /* TaskProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE3B52B27EE41D100F23955 /* TaskProvider.swift */; };
+		DFE3B52E27EE41E500F23955 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE3B52D27EE41E500F23955 /* Task.swift */; };
+		DFE3B53027EE83EA00F23955 /* TaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE3B52F27EE83EA00F23955 /* TaskRequest.swift */; };
 		DFE6B22726B2F36600F89AAA /* SingleTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE6B22626B2F36600F89AAA /* SingleTeacherViewController.swift */; };
 		DFE6B22926B2F52600F89AAA /* TeacherNameNPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE6B22826B2F52600F89AAA /* TeacherNameNPositionCell.swift */; };
 		DFE6B22B26B2F53700F89AAA /* TeacherExperienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE6B22A26B2F53700F89AAA /* TeacherExperienceCell.swift */; };
@@ -170,7 +181,6 @@
 		DF51EB1224D48F1600ADA340 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DF51EB1324D48F1600ADA340 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		DF546D06242EB4AE00B69D70 /* Caches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caches.swift; sourceTree = "<group>"; };
-		DF546D09242EC8B800B69D70 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		DF546D0B242EC8DC00B69D70 /* TimeTableDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDayCell.swift; sourceTree = "<group>"; };
 		DF55AB6924190D78005AE6B4 /* NewMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMarkViewController.swift; sourceTree = "<group>"; };
 		DF5C841726BAD9A2004355EA /* eventsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsStorage.swift; sourceTree = "<group>"; };
@@ -197,15 +207,27 @@
 		DF98E3EE26BE049A0093F8B7 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DF98E3F026BEEF630093F8B7 /* SingleEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEventViewController.swift; sourceTree = "<group>"; };
 		DF98E3F226BEF7E60093F8B7 /* eventDataCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventDataCells.swift; sourceTree = "<group>"; };
+		DF998DB227EF92B100E63056 /* TaskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorage.swift; sourceTree = "<group>"; };
+		DF998DB427EFEC4B00E63056 /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		DF9EAD9824D78A2800C34F2B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		DF9EAD9924D78A2800C34F2B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		DF9EAD9A24D78A2800C34F2B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		DF9EAD9B24D78A2900C34F2B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DFA0955E25F7FFC5007894A0 /* AverageMarkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageMarkTableViewController.swift; sourceTree = "<group>"; };
 		DFA0956325F80F81007894A0 /* AverageMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageMarkCell.swift; sourceTree = "<group>"; };
+		DFA2624328182DAB00DCF4C8 /* NothingFoundStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingFoundStack.swift; sourceTree = "<group>"; };
 		DFB3D4BC25BB79F100C5DF5A /* DBTTController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTTController.swift; sourceTree = "<group>"; };
 		DFB3D4BE25BB850400C5DF5A /* activeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activeTVCell.swift; sourceTree = "<group>"; };
 		DFB3D4C025BB856800C5DF5A /* passiveTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passiveTVCell.swift; sourceTree = "<group>"; };
+		DFD4D4D527F24DA600756D96 /* SingleTaskEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskEditor.swift; sourceTree = "<group>"; };
+		DFD4D4D727F25FEC00756D96 /* SubjectSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSuggestionCell.swift; sourceTree = "<group>"; };
+		DFD4D4D927F365A700756D96 /* AlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
+		DFD4D4DB27F4A80500756D96 /* SingleTaskViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskViewer.swift; sourceTree = "<group>"; };
+		DFE3B52727EE3EE700F23955 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
+		DFE3B52927EE410E00F23955 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		DFE3B52B27EE41D100F23955 /* TaskProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProvider.swift; sourceTree = "<group>"; };
+		DFE3B52D27EE41E500F23955 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DFE3B52F27EE83EA00F23955 /* TaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRequest.swift; sourceTree = "<group>"; };
 		DFE6B22626B2F36600F89AAA /* SingleTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTeacherViewController.swift; sourceTree = "<group>"; };
 		DFE6B22826B2F52600F89AAA /* TeacherNameNPositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherNameNPositionCell.swift; sourceTree = "<group>"; };
 		DFE6B22A26B2F53700F89AAA /* TeacherExperienceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherExperienceCell.swift; sourceTree = "<group>"; };
@@ -338,9 +360,11 @@
 				DF39A56823FD613900CE350F /* DataStorage.swift */,
 				DF7EDDA22623A56100A66A98 /* encryptFile.swift */,
 				DF546D06242EB4AE00B69D70 /* Caches.swift */,
+				DFD4D4D927F365A700756D96 /* AlertFactory.swift */,
 				DF3A1A8325BAE9B300777916 /* CoreDataFuncs.swift */,
 				DF6446A825E435ED00481B5B /* CalendarThings.swift */,
 				DF712C68267FE9EC00B3CE12 /* nntuRooms.swift */,
+				DFE3B52627EE3EBE00F23955 /* Tasks */,
 				F0A0FE5C25C1822F0064684B /* Model */,
 				DF8E6D8124DB0A2600A5C7C0 /* NavigationGroup */,
 				DFE77D83241146EC00DF29DE /* MarkLine */,
@@ -391,7 +415,6 @@
 		DF546D08242EC87700B69D70 /* TimeTableLine */ = {
 			isa = PBXGroup;
 			children = (
-				DF546D09242EC8B800B69D70 /* TimeTableViewController.swift */,
 				DF546D0B242EC8DC00B69D70 /* TimeTableDayCell.swift */,
 				DFB3D4BC25BB79F100C5DF5A /* DBTTController.swift */,
 				DFB3D4BE25BB850400C5DF5A /* activeTVCell.swift */,
@@ -444,6 +467,24 @@
 			children = (
 			);
 			path = NewsCell;
+			sourceTree = "<group>";
+		};
+		DFE3B52627EE3EBE00F23955 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				DFE3B52727EE3EE700F23955 /* TaskListController.swift */,
+				DFD4D4D527F24DA600756D96 /* SingleTaskEditor.swift */,
+				DFD4D4DB27F4A80500756D96 /* SingleTaskViewer.swift */,
+				DFD4D4D727F25FEC00756D96 /* SubjectSuggestionCell.swift */,
+				DFE3B52D27EE41E500F23955 /* Task.swift */,
+				DFE3B52B27EE41D100F23955 /* TaskProvider.swift */,
+				DF998DB227EF92B100E63056 /* TaskStorage.swift */,
+				DFE3B52F27EE83EA00F23955 /* TaskRequest.swift */,
+				DFE3B52927EE410E00F23955 /* TaskCell.swift */,
+				DF998DB427EFEC4B00E63056 /* Checkmark.swift */,
+				DFA2624328182DAB00DCF4C8 /* NothingFoundStack.swift */,
+			);
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 		DFE6B22D26B2F58700F89AAA /* Single Teacher Cells */ = {
@@ -767,15 +808,19 @@
 				DF55AB6A24190D78005AE6B4 /* NewMarkViewController.swift in Sources */,
 				DF6446A925E435ED00481B5B /* CalendarThings.swift in Sources */,
 				DF3A1A8025B8FBBC00777916 /* DBLessonCell.swift in Sources */,
+				DF998DB527EFEC4B00E63056 /* Checkmark.swift in Sources */,
 				DF7C554E25BE294700C9A016 /* LessonDataDBTTCell.swift in Sources */,
 				DF98070126B2009800B73FE7 /* TeacherSearchViewController.swift in Sources */,
 				DF70FE8226A63609000A449E /* zoomThings.swift in Sources */,
 				F0A0FE1C25C17A800064684B /* CoreDataStack.swift in Sources */,
 				DF7C555025BE297600C9A016 /* imageCellDBTT.swift in Sources */,
+				DFA2624428182DAB00DCF4C8 /* NothingFoundStack.swift in Sources */,
 				DF7EDDA32623A56100A66A98 /* encryptFile.swift in Sources */,
+				DFD4D4D627F24DA600756D96 /* SingleTaskEditor.swift in Sources */,
 				DFE6B22F26B2F5A900F89AAA /* TeacherDataPairCell.swift in Sources */,
 				DF546D07242EB4AE00B69D70 /* Caches.swift in Sources */,
 				DFE6B23126B2F5C200F89AAA /* TeacherContactsCell.swift in Sources */,
+				DFD4D4DC27F4A80500756D96 /* SingleTaskViewer.swift in Sources */,
 				DF39A57223FD714500CE350F /* NewsTableViewController.swift in Sources */,
 				DF310F7123F8A30000540A6C /* NavigationViewController.swift in Sources */,
 				F0A0FE5E25C182490064684B /* CoreDataStructs.swift in Sources */,
@@ -789,27 +834,34 @@
 				DF5C841826BAD9A2004355EA /* eventsStorage.swift in Sources */,
 				DF98E3ED26BD975B0093F8B7 /* EventsTableViewController.swift in Sources */,
 				DF39A56F23FD6E4E00CE350F /* NewsViewCell.swift in Sources */,
+				DFD4D4D827F25FEC00756D96 /* SubjectSuggestionCell.swift in Sources */,
 				DFE6B22B26B2F53700F89AAA /* TeacherExperienceCell.swift in Sources */,
 				DF1E7389242A980B000F1C2C /* CodeViewController.swift in Sources */,
 				DF3C7C64241954BE006CC3A6 /* SingleMarkViewController.swift in Sources */,
 				DFE6B22926B2F52600F89AAA /* TeacherNameNPositionCell.swift in Sources */,
 				DFFC21AB2504196500FC256C /* loadingCell.swift in Sources */,
 				DFE77D852411473700DF29DE /* MarkCell.swift in Sources */,
+				DFE3B52A27EE410F00F23955 /* TaskCell.swift in Sources */,
+				DFE3B53027EE83EA00F23955 /* TaskRequest.swift in Sources */,
 				DF546D0C242EC8DC00B69D70 /* TimeTableDayCell.swift in Sources */,
 				DF310F6F23F8A30000540A6C /* SceneDelegate.swift in Sources */,
+				DFD4D4DA27F365A700756D96 /* AlertFactory.swift in Sources */,
 				DF9806FE26B0BA6500B73FE7 /* MoreLineNavigationController.swift in Sources */,
 				DF98070326B20F5600B73FE7 /* TeacherCell.swift in Sources */,
 				DF3A1A7E25B8FB5200777916 /* DBEditorViewController.swift in Sources */,
 				F0736D3C25CEAD5C00033570 /* WidgetFucntions.swift in Sources */,
 				DF73FD162430EB01004E7699 /* nntu_pre_alpha.xcdatamodeld in Sources */,
 				DFB3D4BD25BB79F100C5DF5A /* DBTTController.swift in Sources */,
-				DF546D0A242EC8B800B69D70 /* TimeTableViewController.swift in Sources */,
+				DFE3B52C27EE41D100F23955 /* TaskProvider.swift in Sources */,
 				DFA0955F25F7FFC5007894A0 /* AverageMarkTableViewController.swift in Sources */,
 				DF8E6D8524DB101D00A5C7C0 /* RoomCell.swift in Sources */,
+				DF998DB327EF92B100E63056 /* TaskStorage.swift in Sources */,
 				DFB3D4BF25BB850400C5DF5A /* activeTVCell.swift in Sources */,
 				DF98E3F326BEF7E60093F8B7 /* eventDataCells.swift in Sources */,
+				DFE3B52827EE3EE700F23955 /* TaskListController.swift in Sources */,
 				DFE6B22726B2F36600F89AAA /* SingleTeacherViewController.swift in Sources */,
 				DF3A1A8225B9DC2000777916 /* EditorSingleParaViewController.swift in Sources */,
+				DFE3B52E27EE41E500F23955 /* Task.swift in Sources */,
 				DF98E3F126BEEF630093F8B7 /* SingleEventViewController.swift in Sources */,
 				DF39A56923FD613900CE350F /* DataStorage.swift in Sources */,
 				DF9806FC26AF494200B73FE7 /* teacherStorage.swift in Sources */,
@@ -1052,15 +1104,16 @@
 				CODE_SIGN_ENTITLEMENTS = "nntu/НГТУ.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = nntu/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "НГТУ";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 4.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = nntu.appfinal;
 				PRODUCT_NAME = "НГТУ";
 				SUPPORTS_MACCATALYST = NO;
@@ -1078,15 +1131,16 @@
 				CODE_SIGN_ENTITLEMENTS = "nntu/НГТУ.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = nntu/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "НГТУ";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 4.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = nntu.appfinal;
 				PRODUCT_NAME = "НГТУ";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1106,7 +1160,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetLessonsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = WidgetLessons/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -1115,7 +1169,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nntu.appfinal.WidgetLessons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1134,7 +1188,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetLessonsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = WidgetLessons/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -1143,7 +1197,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nntu.appfinal.WidgetLessons;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1159,7 +1213,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetTimeTable/widgetTimeTable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = widgetTimeTable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1168,7 +1222,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nntu.appfinal.superwidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1185,7 +1239,7 @@
 				CODE_SIGN_ENTITLEMENTS = widgetTimeTable/widgetTimeTable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = 8DB7C77NK9;
 				INFOPLIST_FILE = widgetTimeTable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1194,7 +1248,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 3.2;
+				MARKETING_VERSION = 3.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = nntu.appfinal.superwidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
