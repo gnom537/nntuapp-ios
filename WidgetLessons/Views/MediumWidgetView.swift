@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 
+// TODO: Если это кто-то читает, сделайте, пожалуйста, большую и среднюю версию виджета
+
 // MARK: - Main
 struct MediumWidget: View {
     

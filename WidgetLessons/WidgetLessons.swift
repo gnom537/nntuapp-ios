@@ -159,7 +159,7 @@ struct WidgetLessonsEntryView : View {
         switch family {
         case .systemSmall:
             smallWidget(widgetData: entry.smallWidgetData, progressBar: entry.progressBar)
-                .widgetURL(URL(string: "openTimeTable"))
+                .widgetURL(URL(string: "nntu.openTimeTable"))
             
         //        case .systemMedium:
         //            MediumWidget(lesson: entry.lesson, lessons: entry.lessons, progress: entry.progressBar, index: entry.indexLesson, count: entry.lessons.count, fourDisplay: entry.fourLessons, date: entry.date)

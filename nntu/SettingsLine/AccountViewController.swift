@@ -383,10 +383,5 @@ class AccountViewController: UIViewController, UITextFieldDelegate {
         Group.text = ""
     }
     
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        viewDidLoad()
-//    }
-    
 }
 

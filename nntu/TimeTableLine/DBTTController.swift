@@ -20,6 +20,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         self.tabBarController?.apply(config, vcs: tabBarVCs)
     }
     
+    private let calendarManager = CalendarManager()
     @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
     @IBOutlet var prevDayButton: UIButton!
     @IBOutlet var nextDayButton: UIButton!
@@ -75,7 +76,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         //приколы с календарем
         isCalendarUpdating = data.bool(forKey: "CalendarTransfer")
         if (isCalendarUpdating && allLessons.count > 0){
-            putTTinCalendar(tt: allLessons)
+            calendarManager.putTTinCalendar(tt: allLessons)
         }
         
         self.tableView.reloadData()
@@ -116,7 +117,7 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         //приколы с календарем
         isCalendarUpdating = data.bool(forKey: "CalendarTransfer")
         if (isCalendarUpdating && allLessons.count > 0){
-            putTTinCalendar(tt: allLessons)
+            calendarManager.putTTinCalendar(tt: allLessons)
         }
     }
     
@@ -391,110 +392,6 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         getActualLesson()
     }
     
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        allLessons = CDLoadLessons()
-    //        if (checkAutoUpdate() == true || allLessons.count == 0){
-    //            onlineTT()
-    //        }
-    //        showedLessons = filterByDay(all: allLessons, day: getNowDayOfWeek(), week: getWeekNumber())
-    //        getActualLesson()
-    //        self.tableView.reloadData()
-    //    }
-        
-        
-    //    func getActualLesson(){
-    //        if (showedLessons.count == 0) {return}
-    //        let now = Date()
-    //        var userCalendar = Calendar.current
-    //        userCalendar.locale = Locale(identifier: "ru_UA")
-    //        let dateTime = userCalendar.component(.hour, from: now)*100 + userCalendar.component(.minute, from: now)
-    //        for i in (0 ... showedLessons.count - 1){
-    //            let stopTime = timeFromString(string: showedLessons[i].stopTime)
-    //            if (dateTime < stopTime){
-    //                actualLesson = i
-    //                return
-    //            }
-    //        }
-    //    }
-        
-        
-    //    func getNowDayOfWeek() -> Int {
-    //        let now = Date()
-    //        var userCalendar = Calendar.current
-    //        userCalendar.locale = Locale(identifier: "ru_UA")
-    //        nowDayWeek = userCalendar.component(.weekday, from: now)
-    //        if (nowDayWeek == 1){
-    //            nowDayWeek = 7
-    //        } else {nowDayWeek -= 1}
-    //        nowDayWeek -= 1
-    //        return nowDayWeek
-    //    }
-        
-    //    func getWeekNumber() -> Int {
-    //        let now = Date()
-    //        var userCalendar = Calendar.current
-    //        userCalendar.locale = Locale(identifier: "ru_UA")
-    //        nowWeek = userCalendar.component(.weekOfYear, from: now)
-    ////        print("ТЕКУЩАЯ НЕДЕЛЯ ПО NOWWEEK: \(nowWeek)")
-    //        if (userCalendar.component(.weekday, from: now) == 1){
-    //            nowWeek -= 1
-    //        }
-    ////        print("ИЗМЕНЕННАЯ НЕДЕЛЯ ПО NOWWEEK: \(nowWeek)")
-    //        return nowWeek
-    //    }
-    //
-    
-    //    @IBAction func showEverythingButton(_ sender: UIBarButtonItem) {
-    //        if (areAllActive) {
-    //            areAllActive = false
-    //            sender.image = UIImage(systemName: "tablecells.badge.ellipsis")
-    //        } else {
-    //            areAllActive = true
-    //            sender.image = UIImage(systemName: "tablecells.badge.ellipsis.fill")
-    //        }
-    //        let generator = UIImpactFeedbackGenerator(style: .medium)
-    //        generator.impactOccurred()
-    //        UserDefaults.standard.set(areAllActive, forKey: "areAllActive")
-    //        self.tableView.reloadData()
-    //    }
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
     @IBAction func goPickTime(_ sender: Any) {
         performSegue(withIdentifier: "goPickTime", sender: (Any).self)
@@ -513,8 +410,6 @@ class DBTTController: UITableViewController, UIGestureRecognizerDelegate {
         } else if (segue.identifier == "goPickTime"){
             dateForTT = nil
             freeDBTTController = self
-//            let pickerVC = segue.destination as! pickTimeController
-//            pickerVC.dayDifference = 0
         }
     }
     

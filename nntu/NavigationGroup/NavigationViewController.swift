@@ -82,14 +82,6 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
             topConstraint.constant = 20
             findbutton()
         }
-        
-//        scroll.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(rotateGesture(_:))))
-        /*
-         let screen: CGRect = self.view.bounds
-         if (screen.height >= 768){
-             ImageHeight.constant = screen.height - 250
-         }
-         */
     }
     
     //MARK: checksegment()
@@ -221,7 +213,6 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
         InputTextField.placeholder = NSLocalizedString("Введите аудиторию..", comment: "")
         let input: Int = Int(InputTextField.text ?? "0") ?? 0
         let nowsegment = Int(choosingfloor.titleForSegment(at: choosingfloor.selectedSegmentIndex)!) ?? 0
-//        print(nowsegment)
         let buildingsegment = Int(choosingBuilding.titleForSegment(at: choosingBuilding.selectedSegmentIndex)!) ?? 6
         var requestedSegment = (input/100)%10
         let requestedBuilding = (input/1000)
@@ -382,7 +373,6 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
         let image = self.TheImage.image
         UIView.animate(withDuration: 0.25, animations: {
             self.TheImage.image = image!.rotate(radians: self.cgPI/2)
-//            self.TheImage.transform = self.TheImage.transform.rotated(by: self.cgPI/2)
         })
     }
     
@@ -392,13 +382,5 @@ class NavigationViewController: UIViewController, UIScrollViewDelegate {
             sender.rotation = 0
         }
     }
-    
-    
-    /*
-     @IBAction func RotateButton(_ sender: UIButton) {
-         self.TheImage.image = self.TheImage.image?.rotate(radians: .pi)
-         rotated = !rotated
-     }
-     */
 }
 

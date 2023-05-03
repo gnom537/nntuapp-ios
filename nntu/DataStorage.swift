@@ -536,23 +536,7 @@ func GetNowWeek () -> Int {
     userCalendar.locale = Locale(identifier: "ru_UA")
     let weekOfYear = userCalendar.component(.weekOfYear, from: Date())
     
-    return ((weekOfYear + 1)%2)
-    
-//    var dateComponents = DateComponents()
-//    dateComponents.year = 2020
-//    dateComponents.month = 2
-//    dateComponents.day = 10
-//    dateComponents.hour = 5
-//
-//    let userCalendar = Calendar.current
-//    let StartDate = userCalendar.date(from: dateComponents)
-//    let now = Date()
-//
-//    let difference = Int((now.timeIntervalSince1970 - StartDate!.timeIntervalSince1970))%1209600
-//    //print(difference)
-//    if (difference >= 604800) {
-//        return 0
-//    } else {return 1}
+    return ((weekOfYear + 1) % 2)
 }
 
 
@@ -589,7 +573,7 @@ extension TabBarConfig {
     }
     
     static func from(entered: Bool, nstud: String?) -> TabBarConfig {
-        guard entered else {return .notAuthorized}
+        guard entered else { return .notAuthorized }
         guard let nstud = nstud, !nstud.isEmpty else { return .teacher }
         return .student
     }

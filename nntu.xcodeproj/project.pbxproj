@@ -26,14 +26,13 @@
 		DF3A1A7E25B8FB5200777916 /* DBEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A1A7D25B8FB5200777916 /* DBEditorViewController.swift */; };
 		DF3A1A8025B8FBBC00777916 /* DBLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A1A7F25B8FBBC00777916 /* DBLessonCell.swift */; };
 		DF3A1A8225B9DC2000777916 /* EditorSingleParaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A1A8125B9DC2000777916 /* EditorSingleParaViewController.swift */; };
-		DF3A1A8425BAE9B400777916 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A1A8325BAE9B300777916 /* CoreDataFuncs.swift */; };
 		DF3A1A8625BB185200777916 /* CodeDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A1A8525BB185200777916 /* CodeDBViewController.swift */; };
 		DF3C7C64241954BE006CC3A6 /* SingleMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C7C63241954BE006CC3A6 /* SingleMarkViewController.swift */; };
 		DF546D07242EB4AE00B69D70 /* Caches.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF546D06242EB4AE00B69D70 /* Caches.swift */; };
 		DF546D0C242EC8DC00B69D70 /* TimeTableDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF546D0B242EC8DC00B69D70 /* TimeTableDayCell.swift */; };
 		DF55AB6A24190D78005AE6B4 /* NewMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55AB6924190D78005AE6B4 /* NewMarkViewController.swift */; };
 		DF5C841826BAD9A2004355EA /* eventsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5C841726BAD9A2004355EA /* eventsStorage.swift */; };
-		DF6446A925E435ED00481B5B /* CalendarThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6446A825E435ED00481B5B /* CalendarThings.swift */; };
+		DF6446A925E435ED00481B5B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6446A825E435ED00481B5B /* CalendarManager.swift */; };
 		DF6E1C5024D7342C00E04AE8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF6E1C4E24D7342C00E04AE8 /* Localizable.strings */; };
 		DF70FE8226A63609000A449E /* zoomThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF70FE8126A63609000A449E /* zoomThings.swift */; };
 		DF712C69267FE9EC00B3CE12 /* nntuRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF712C68267FE9EC00B3CE12 /* nntuRooms.swift */; };
@@ -174,7 +173,6 @@
 		DF3A1A7D25B8FB5200777916 /* DBEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBEditorViewController.swift; sourceTree = "<group>"; };
 		DF3A1A7F25B8FBBC00777916 /* DBLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLessonCell.swift; sourceTree = "<group>"; };
 		DF3A1A8125B9DC2000777916 /* EditorSingleParaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSingleParaViewController.swift; sourceTree = "<group>"; };
-		DF3A1A8325BAE9B300777916 /* CoreDataFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncs.swift; sourceTree = "<group>"; };
 		DF3A1A8525BB185200777916 /* CodeDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeDBViewController.swift; sourceTree = "<group>"; };
 		DF3C7C63241954BE006CC3A6 /* SingleMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMarkViewController.swift; sourceTree = "<group>"; };
 		DF51EB1124D48F1500ADA340 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -184,7 +182,7 @@
 		DF546D0B242EC8DC00B69D70 /* TimeTableDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDayCell.swift; sourceTree = "<group>"; };
 		DF55AB6924190D78005AE6B4 /* NewMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMarkViewController.swift; sourceTree = "<group>"; };
 		DF5C841726BAD9A2004355EA /* eventsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsStorage.swift; sourceTree = "<group>"; };
-		DF6446A825E435ED00481B5B /* CalendarThings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarThings.swift; sourceTree = "<group>"; };
+		DF6446A825E435ED00481B5B /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		DF6E1C4F24D7342C00E04AE8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DF6E1C5124D7343D00E04AE8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DF6E1C5224D7693F00E04AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -361,8 +359,7 @@
 				DF7EDDA22623A56100A66A98 /* encryptFile.swift */,
 				DF546D06242EB4AE00B69D70 /* Caches.swift */,
 				DFD4D4D927F365A700756D96 /* AlertFactory.swift */,
-				DF3A1A8325BAE9B300777916 /* CoreDataFuncs.swift */,
-				DF6446A825E435ED00481B5B /* CalendarThings.swift */,
+				DF6446A825E435ED00481B5B /* CalendarManager.swift */,
 				DF712C68267FE9EC00B3CE12 /* nntuRooms.swift */,
 				DFE3B52627EE3EBE00F23955 /* Tasks */,
 				F0A0FE5C25C1822F0064684B /* Model */,
@@ -806,7 +803,7 @@
 				DF310F7323F8A30000540A6C /* AccountViewController.swift in Sources */,
 				DF2C8B0623FDB1F300839FEE /* ArticleTableViewCell.swift in Sources */,
 				DF55AB6A24190D78005AE6B4 /* NewMarkViewController.swift in Sources */,
-				DF6446A925E435ED00481B5B /* CalendarThings.swift in Sources */,
+				DF6446A925E435ED00481B5B /* CalendarManager.swift in Sources */,
 				DF3A1A8025B8FBBC00777916 /* DBLessonCell.swift in Sources */,
 				DF998DB527EFEC4B00E63056 /* Checkmark.swift in Sources */,
 				DF7C554E25BE294700C9A016 /* LessonDataDBTTCell.swift in Sources */,
@@ -865,7 +862,6 @@
 				DF98E3F126BEEF630093F8B7 /* SingleEventViewController.swift in Sources */,
 				DF39A56923FD613900CE350F /* DataStorage.swift in Sources */,
 				DF9806FC26AF494200B73FE7 /* teacherStorage.swift in Sources */,
-				DF3A1A8425BAE9B400777916 /* CoreDataFuncs.swift in Sources */,
 				F0736D3725CE074D00033570 /* DateFunctions.swift in Sources */,
 				DF712C69267FE9EC00B3CE12 /* nntuRooms.swift in Sources */,
 				DF3A1A8625BB185200777916 /* CodeDBViewController.swift in Sources */,
