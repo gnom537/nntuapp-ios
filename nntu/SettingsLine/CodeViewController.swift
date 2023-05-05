@@ -38,46 +38,6 @@ class CodeViewController: UIViewController, UITextFieldDelegate{
 
     @IBAction func CheckInfo(_ sender: Any) {
         CodeField.endEditing(true)
-//        var UserGroup = data.string(forKey: "Group")
-//        if (UserGroup != nil && UserGroup != ""){
-//            UserGroup = encrypt(input: UserGroup)
-//            let CodeGroup = CodeField.text
-//            if (CodeGroup != nil && CodeGroup != ""){
-//                //CodeGroup = encrypt(input: CodeGroup)
-//                if (CodeGroup == UserGroup){
-//
-//                    let genator = UINotificationFeedbackGenerator()
-//                    genator.notificationOccurred(.success)
-//
-////                    performSegue(withIdentifier: "RightAnswer", sender: (Any).self)
-//                } else {
-//                    print (CodeGroup ?? "")
-//                    print (UserGroup ?? "")
-//                    if (CodeField.text?.lowercased().contains("с пасхой") == true){
-//                        openEaster()
-//                    } else {
-//                        UpperLabel.text = NSLocalizedString("Неверный код", comment: "")
-//                        UpperLabel.textColor = UIColor.red
-//
-//                        let genator = UINotificationFeedbackGenerator()
-//                        genator.notificationOccurred(.error)
-//                    }
-//                }
-//            } else {
-//                print (UserGroup!)
-//                //performSegue(withIdentifier: "RightAnswer", sender: (Any).self)
-//                UpperLabel.text = NSLocalizedString("Введите код!", comment: "")
-//                UpperLabel.textColor = UIColor.systemRed
-//
-//                let genator = UINotificationFeedbackGenerator()
-//                genator.notificationOccurred(.error)
-//            }
-//        } else {
-//            UpperLabel.text = NSLocalizedString("Вход не выполнен", comment: "")
-//            UpperLabel.textColor = UIColor.systemRed
-//        }
-        
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -119,14 +79,4 @@ class CodeViewController: UIViewController, UITextFieldDelegate{
         popup.addAction(ok)
         present(popup, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
